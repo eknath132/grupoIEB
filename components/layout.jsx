@@ -45,7 +45,7 @@ export default function layout({children, title, description}) {
                     <div className={styles.logo} >
                         <Image 
                             src={'/iconPrincipal.png'}
-                            alt="imagen1"
+                            alt="Icono Principal"
                             width={45}
                             height={45}
                         />
