@@ -44,7 +44,7 @@ export default function layout({children, title, description}) {
                 <nav>
                     <div className={styles.logo} >
                         <Image 
-                            src={'/iconPrincipal.png'}
+                            src={'/Vector.jpg'}
                             alt="Icono Principal"
                             width={45}
                             height={45}
