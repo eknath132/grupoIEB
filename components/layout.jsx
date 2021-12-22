@@ -63,26 +63,26 @@ export default function layout({children, title, description}) {
                                 </a>
                             </Link> 
                         </li>
-                            {menu.map(item => (
-                                <div key={item.name}>
-                                    <div className={styles.menuIcons} onClick={e => Router.push(item.url, item.url)}>
-                                        <Image
-                                            src={item.img}
-                                            alt={item.name}
-                                            width={25}
-                                            height={25}
-                                            className={styles.center}
-                                        />
-                                    </div>
-                                    <li className={styles.li}> 
-                                        <Link href={"/"}>
-                                            <a>
-                                                {item.name} 
-                                            </a>
-                                        </Link> 
-                                    </li>
+                        {menu.map(item => (
+                            <div key={item.name}>
+                                <div className={styles.menuIcons} onClick={e => Router.push(item.url, item.url)}>
+                                    <Image
+                                        src={item.img}
+                                        alt={item.name}
+                                        width={25}
+                                        height={25}
+                                        className={styles.center}
+                                    />
                                 </div>
-                            ))}
+                                <li className={styles.li}> 
+                                    <Link href={"/"}>
+                                        <a>
+                                            {item.name} 
+                                        </a>
+                                    </Link> 
+                                </li>
+                            </div>
+                        ))}
                     </ul>
                 </nav>
             </div>
