@@ -2,6 +2,9 @@ import Head from "next/head";
 import Router from 'next/router'
 import Link from "next/link";
 import Image from "next/image";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import $ from 'jquery';
+import Popper from 'popper.js';
 
 import styles from "../styles/layout.module.css";
 
@@ -38,7 +41,8 @@ export default function layout({children, title, description}) {
         <div className={styles.container}>
             <Head>
                 <title> {title} </title>
-                <meta name="description" content={description}/> 
+                <meta name="description" content={description}/>
+                
             </Head>
             <div> 
                 <nav>

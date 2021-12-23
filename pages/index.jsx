@@ -4,7 +4,9 @@ import Avatar from '../components/Header/avatar'
 import Layout from '../components/layout';
 import Styles from '../styles/Home.module.css';
 import Grid from '@mui/material/Grid';
-import Principal from '../components/Principal'
+import Disponibles from '../components/Principal/disponibles'
+import Obejtivo from '../components/Principal/objetivo'
+import Cauciones from '../components/Principal/cauciones';
 
 const Index = ({data}) => {
     return (
@@ -27,13 +29,25 @@ const Index = ({data}) => {
             </header>
 
             <section style={{marginTop: '10px'}}>
-                <Grid container>
-                    <Grid item xs={5}style={{marginRight: '20px', minWidth:'500px'}}>
-                        <Principal precio={'75 Bil'}/>
+                <Grid container flex={'flex'} wrap='wrap'>
+                    <Grid item xs={5.5} style={{marginRight: '20px'}}>
+                        <Disponibles precio={'75 Bil'}/>
                     </Grid>
-                    <Grid item lg={5.5}  style={{minWidth:'400px'}}>
+                    <Grid item xs={5.5}>
+                        <Obejtivo/>
                     </Grid>
-
+                    <Grid item xs={2.5} style={{marginRight:'10px', marginTop:'10px'}}>
+                        <Cauciones title={'Cauciones'} number={'55'} message={'Próximos a vencer'}/>
+                    </Grid>
+                    <Grid item xs={2.5} style={{marginRight:'10px', marginTop:'10px'}}>
+                        <Cauciones title={'Apalancamiento'} number={'100Bil'} message={'Total excedido'}/>
+                    </Grid>
+                    <Grid item xs={2.5} style={{background: 'blue', marginRight:'10px', marginTop:'10px'}}>
+                        <Cauciones title={'Cauciones'} number={'55'} message={'Próximos a vencer'}/>
+                    </Grid>
+                    <Grid item xs={3.5} style={{background: 'pink', marginTop:'10px'}}>
+                        <Cauciones title={'Cauciones'} number={'55'} message={'Próximos a vencer'}/>
+                    </Grid>       
                 </Grid>
             </section>
         </Layout>
