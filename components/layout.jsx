@@ -39,7 +39,7 @@ export default function layout({children, title, description}) {
         <div className={styles.container}>
             <Head>
                 <title> {title} </title>
-                <meta name="description" content={description}/> 
+                <meta name="description" content={description}/>
             </Head>
             <div className="row">
                 <nav className={`${styles.nav} col-sm-1`} >

@@ -52,12 +52,12 @@
     font-weight: bold;
     display: flex;
     margin-left: auto;
-    margin-right: auto;
+    /*margin-right: auto; */
 }
 
 .signoFlex p {
     color: #fff;
-    margin-left: 5px;
+    margin-left: 20px;
 }
 
 
@@ -68,6 +68,7 @@
     border-radius: 100px;
     line-height: 48px;
     margin-top: 10px;
+    margin-left: 60px;
     margin-bottom: -20px;
     background-color: #fff;
     cursor: pointer;
@@ -170,6 +171,22 @@
     max-height: 10px;
     font-size: 24px;
     line-height: 50px;
+}
+
+.comisionesBoxLeft h3{
+    color: #FFF;
+    max-height: 10px;
+    font-size: 24px;
+    line-height: 50px;
+    letter-spacing: -0.02em;
+}
+
+.comisionesBoxLeft h4{
+    color: #A7C9B9;
+    font-size: 16px;
+    max-height: 10px;
+    line-height: 50px;
+    letter-spacing: -0.02em;
 }
 
 .cuentasBoxRight h3 {
@@ -628,6 +645,16 @@
 
 
 /*  */
+
+@media only screen and (max-width: 1270px) {
+    .menuIcons {
+        margin-left: 10px;
+    }
+    .signoFlex p{
+        margin-left: 10px;
+    }
+}
+
 
 @media only screen and (min-width: 991px) and (max-width: 1046px) {
     .tenenciaP {

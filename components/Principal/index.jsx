@@ -23,7 +23,7 @@ const index = ({precio}) => {
                             </div>
                         </div>
                         <div className={`${style.contenedorSigno} col-md-12 col-lg-6 col-xl-6`}>
-                            <div className={`${style.signoFlex} col-xs-12`}>
+                            <div className={`${style.signoFlex} col`}>
                                 <div className={style.menuIcons}>
                                     <Image 
                                         src={'/signoDolar.png'}
