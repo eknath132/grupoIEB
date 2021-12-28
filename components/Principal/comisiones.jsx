@@ -49,17 +49,17 @@ const comisiones = ({value, mesAnterior, mesActual}) => {
             <div className={`${style.cuentas} col-md-12 col-lg-5 p-3 mt-4`}>
                 <div className='row'>
                     <div className={`${style.cuentasBox} col-md-12 col-lg-6`}>
-                        <div className={style.cuentasBoxLeft}> 
+                        <div className={style.comisionesBoxLeft}> 
                             <h3>
-                                Apertura de
+                                Comisiones
                             </h3>
                             <h4 style={{maxHeight:'10px'}}>
-                                Cuentas
+                                del mes
                             </h4>
                         </div>
                         <div className={style.cuentasBoxRight}> 
                             <h3>
-                                25
+                                90K
                             </h3>
                             <h4>
                                 Total
