@@ -11,21 +11,16 @@ const Id = ({data, warning}) => {
             title= "About"
             description={"Descripcion del about"}
         >
-            <div className={home.header}>
+            <header className='container'>
 
                 <Informacion
                     title={'Inicio| Panel principal'}
-                    subtitle={data?.first_name}
+                    name={data?.first_name}
+                    subtitle={'IEB'}
+                    active={'Activo'}
+                    avatar={data?.avatar}
                 />
-
-                <div>
-                    <Avatar
-                        title={'IEB'}
-                        subtitle={'Activo'}
-                        avatar={data?.avatar}
-                    />
-                </div>
-            </div>
+            </header>
         </Layout>
     )
 }

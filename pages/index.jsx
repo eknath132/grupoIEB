@@ -9,32 +9,24 @@ import Principal from '../components/Principal'
 const Index = ({data}) => {
     return (
         <Layout
-            title= "About"
-            description={"Descripcion del about"}
+            title= "Inicio"
+            description={"Pantalla Principal"}
         >
-            <header className={Styles.header}>
+            <header className='container'>
                 <Informacion
                     title={'Inicio| Panel principal'}
-                    subtitle={'Productor 1'}
+                    name={'Productor 1'}
+                    subtitle={'IEB'}
+                    active={'Activo'}
                 />
-
-                <div>
-                    <Avatar
-                        title={'IEB'}
-                        subtitle={'Activo'}
-                    />
-                </div>
             </header>
 
             <section style={{marginTop: '10px'}}>
-                <Grid container>
-                    <Grid item xs={5}style={{marginRight: '20px', minWidth:'500px'}}>
+                <div className="container">
+                    {/* <div> */}
                         <Principal precio={'75 Bil'}/>
-                    </Grid>
-                    <Grid item lg={5.5}  style={{minWidth:'400px'}}>
-                    </Grid>
-
-                </Grid>
+                    {/* </div> */}
+                </div>
             </section>
         </Layout>
     )

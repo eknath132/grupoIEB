@@ -1,0 +1,26 @@
+.title {
+    color: #3D5A6C;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.name{
+    color: #3D5A6C;
+    font-size: 34px;
+    font-weight: bold;
+    margin-top: -10px;
+}
+
+.subtitle{
+    color: #3D5A6C;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.active{
+    color: #3D5A6C;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: -20px;
+}
