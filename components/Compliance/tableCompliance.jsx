@@ -59,7 +59,6 @@ const tableCompliance = ({columns}) => {
                                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                                     {columns.map((column) => {
                                     const value = row[column.id];
-                                    console.log(row.state)
                                     if (row.state !== 'Activa' && column.id === 'state'){
                                         return(
                                             <TableCell key={column.id} align={column.align} style={{color:'red', fontSize: '12px', display:'flex', justifyContent:'space-between', lineHeight: '30px'}}>
@@ -80,8 +79,15 @@ const tableCompliance = ({columns}) => {
                                             </TableCell>
                                         );
                                     }
+                                    if(column.id === 'name') {
+                                        return(
+                                            <TableCell key={column.id} align={column.align} style={{color:'#3D5A6C', fontSize: '14px', fontWeight: 'bold'}}>
+                                                {value}
+                                            </TableCell>
+                                        )
+                                    }
                                     return (
-                                        <TableCell key={column.id} align={column.align} style={{color: column.color ? column.color: 'black', fontSize: '12px'}}>
+                                        <TableCell key={column.id} align={column.align} style={{color: column.color, fontSize: '12px', fontWeight:'500'}}>
                                             {value}
                                         </TableCell>
                                     );
