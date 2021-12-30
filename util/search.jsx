@@ -3,11 +3,12 @@ import InputBase from '@mui/material/InputBase';
 
 export const Search = styled('div')(({ theme }) => ({
     position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: '#fff3f3',
-    '&:hover': {
-      backgroundColor: '#fff3f3',
-    },
+    borderRadius: '40px',
+    // backgroundColor: '#fff3f3',
+    // '&:hover': {
+    //   backgroundColor: '#fff3f3',
+    // },
+    boxShadow: '0px 1px 10px 1px rgba(0, 0, 0, 0.08)',
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {

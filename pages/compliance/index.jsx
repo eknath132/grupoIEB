@@ -1,21 +1,17 @@
-import Image from 'next/image'
-import Informacion from '../components/Header/informacion'
-import Avatar from '../components/Header/avatar'
-import Layout from '../components/layout';
-import Styles from '../styles/Home.module.css';
-import Grid from '@mui/material/Grid';
-import Principal from '../components/Principal'
+import Informacion from '../../components/Header/informacion'
+import Layout from '../../components/layout';
+import ComplianceScreen from '../../components/Compliance';
 
-const Index = ({data}) => {
+const Compliance = () => {
     return (
         <Layout
-            title= "Inicio"
+            title= "Compliance"
             description={"Pantalla Principal"}
         >
             <header className='container'>
                 <Informacion
-                    title={'Inicio| Panel principal'}
-                    name={'Productor 1'}
+                    title={'Compliance| Cuentas'}
+                    name={'Estado de cuenta'}
                     subtitle={'IEB'}
                     active={'Activo'}
                 />
@@ -23,14 +19,14 @@ const Index = ({data}) => {
 
             <section style={{marginTop: '10px'}}>
                 <div className="container">
-                        <Principal precio={'75 Bil'}/>
+                    <ComplianceScreen/>
                 </div>
             </section>
         </Layout>
     )
 }
 
-export default Index;
+export default Compliance;
 
 export async function getServerSideProps() {
     const res = await fetch('https://reqres.in/api/users/');
