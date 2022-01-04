@@ -37,7 +37,7 @@ const info = () => {
             </div>
 
             <div className={`${style.infoCarrousel}`}>
-                    <div style={{marginLeft:'60px', display:'flex'}}>
+                    <div style={{marginLeft:'75px', display:'flex'}}>
                         <ArrowBackIosNewIcon sx={{position:'absolute', marginLeft:'-30px', marginTop:'50px'}}/>
                         <div className={`${style.infoLeft} col-md-6`}>
                                 Tarjeta con info
