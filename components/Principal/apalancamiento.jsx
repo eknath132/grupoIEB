@@ -1,4 +1,5 @@
 import style from '../../styles/principal.module.css';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const apalancamiento = () => {
     const clientes = [
@@ -26,7 +27,7 @@ const apalancamiento = () => {
     ]
 
     return (
-        <div className={`${style.caucionesBox} col`}>
+        <div className={`${style.apalancamientoBox} col`}>
             <p className={style.caucionesTitle}>
                 Apalancamiento
             </p>
@@ -34,19 +35,23 @@ const apalancamiento = () => {
                 <p> 100Bil </p>
                 <p> Total excedido</p>
             </div>
-                {clientes.map(cli => { console.log(cli)
-                   return ( 
-                            <div key={cli.cliente} className={style.caucionesClienteBox}>
-                                <span className={style.caucionesCliente}>
-                                    {cli.cliente}
-                                    <p>N°: {cli.numComitente}</p>
-                                </span>
-                                <span className={style.caucionesDinero}>
-                                    {` $${cli.plata}`}
-                                </span>
-                            </div>
-                    )
-                })}
+            {clientes.map(cli => {
+                return ( 
+                        <div key={cli.cliente} className={style.caucionesClienteBox}>
+                            <span className={style.caucionesCliente}>
+                                {cli.cliente}
+                                <p>N°: {cli.numComitente}</p>
+                            </span>
+                            <span className={style.caucionesDinero}>
+                                {` $${cli.plata}`}
+                            </span>
+                        </div>
+                )
+            })}
+            <div className={style.seeAll}>
+                Ver Todos
+                <ArrowForwardIcon sx={{color:'#365848'}}/>
+            </div>
         </div>
     )
 }

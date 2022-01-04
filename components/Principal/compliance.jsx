@@ -1,4 +1,5 @@
 import style from '../../styles/principal.module.css';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const compliance = () => {
     const clientes = [
@@ -33,19 +34,23 @@ const compliance = () => {
                     02 de noviembre
                 </p>
             </div>
-                {clientes.map(cli => {
-                   return ( 
-                        <div key={cli.cliente} className={style.complianceClienteBox}>
-                            <span className={style.complianceCliente}>
-                                {cli.cliente}
-                                <p>Documento: {cli.documento}</p>
-                            </span>
-                            <span className={style.complianceActualizar}>
-                                Actualizar
-                            </span>
-                        </div>
-                    )
-                })}
+            {clientes.map(cli => {
+                return ( 
+                    <div key={cli.cliente} className={style.complianceClienteBox}>
+                        <span className={style.complianceCliente}>
+                            {cli.cliente}
+                            <p>Documento</p>
+                        </span>
+                        <span className={style.complianceActualizar}>
+                            Actualizar
+                        </span>
+                    </div>
+                )
+            })}
+            <div className={style.seeAll}>
+                Ver Todos
+                <ArrowForwardIcon sx={{color:'#365848'}}/>
+            </div>
         </div>
     )
 }

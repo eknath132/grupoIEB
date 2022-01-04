@@ -1,115 +1,168 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/rules-of-hooks */
 import Head from "next/head";
 import Router from 'next/router'
 import Link from "next/link";
 import Image from "next/image";
 import Tooltip from '@mui/material/Tooltip';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Hidden from '@mui/material/Hidden';
 
 import styles from "../styles/layout.module.css";
-
-const menu = [
-    {
-        url: '/',
-        name: 'Inicio',
-        img:'/casa.png'
-    },
-    {
-        url: '/',
-        name: 'Tenencia',
-        img:'/casa.png'
-    },
-    {
-        url: '/',
-        name: 'Mercados',
-        img:'/casa.png'
-    },
-    {
-        url: '/',
-        name: 'Procesos',
-        img:'/procesos.png'
-    },
-    {
-        url: '/',
-        name: 'Reportes',
-        img:'/reportes.png'
-    },
-]
+import { useState } from "react";
+import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
+import Icon from '@mui/material/Icon';
+import { height, textAlign } from "@mui/system";
 
 export default function layout({children, title, description}) {
+
+    const [hidden, setHidden] = useState(false)
+    const toggleDrawer = (open) => (event) => {
+        if (
+          event &&
+          event.type === 'keydown' &&
+          (event.key === 'Tab' || event.key === 'Shift')
+        ) {
+            return;
+        }
+
+        setHidden(open);
+
+    }
+
     return (
         <div className={styles.container}>
             <Head>
                 <title> {title} </title>
                 <meta name="description" content={description}/>
             </Head>
+            <Hidden mdUp={true}>
+                <SwipeableDrawer
+                    anchor={'left'}
+                    open={hidden}
+                    onClose={toggleDrawer(false)}
+                    onOpen={toggleDrawer(true)}
+                >
+                    <ul>
+                        
+                        <li>
+                            <HomeIcon/>
+                        </li>
+                        <li>
+                            3
+                        </li>
+                        <li>
+                            4
+                        </li>
+                        <li>
+                            5
+                        </li>
+                    </ul>
+                </SwipeableDrawer>
+            </Hidden>
+            
             <div className="row">
-                <nav className={`${styles.nav} col-sm-1`} >
+                <nav className={`${styles.nav} col-md-12 col-lg-1`} >
+                    <div className={styles.isMobileHeader}>
                         <div className={`${styles.logo} col-12`}> 
-                            <Image 
-                                src={'/IconPrincipal.png'}
-                                alt="Icono Principal"
-                                width={40}
-                                height={40}
-                            />
+                        <Icon style={{root: {textAlign:'center'}, fontSize:'60px', background:'#FFF', borderRadius:'70px', padding:'10px', marginTop:'10px', marginLeft:'auto'}}>
+                            <img style={{height:'100%', marginTop:'-55px', marginLeft:'2px'}} src="/principal.svg"/>
+                        </Icon>
                         </div>
+                        <div className={styles.cerrar} onClick={()=>setHidden(true)}> 
+                            <MenuIcon/>
+                        </div>
+                    </div>
+                    <div className={styles.isMobileBody}>
                         <ul className={ `${styles.ul} col-12`}>
-                                <li className={styles.li}> 
-                                    <Link href={"/about/1"}>
-                                        <a>
-                                            <Image
-                                                src={'/campana.png'}
-                                                alt="imagen1"
-                                                width={25}
-                                                height={30}
-                                            />
-                                        </a>
-                                    </Link> 
-                                </li>
-                            {menu.map(item => (
-                                <div key={item.name}>
-                                    <div className={styles.menuIcons} onClick={e => Router.push(item.url, item.url)}>
-                                        <Image
-                                            src={item.img}
-                                            alt={item.name}
-                                            width={25}
-                                            height={25}
-                                        />
-                                    </div>
-                                    <li className={styles.li}> 
-                                        <Link href={"/"}>
-                                            <a>
-                                                {item.name} 
-                                            </a>
-                                        </Link> 
-                                    </li>
-                                </div>
-                            ))}
+                            <li className={styles.li}> 
+                                <Link href={"/productor/1"}>
+                                    <a>
+                                        <Icon style={{root: {textAlign:'center'}, fontSize:'45px', border:'2px solid #A7C9B9', borderRadius:'10px', padding:'10px', marginTop:'10px', marginLeft:'auto'}}>
+                                            <img style={{height:'150%', marginTop:'-54px', marginLeft:'-2px'}} src="/campana.svg"/>
+                                        </Icon>
+                                    </a>
+                                </Link> 
+                            </li>
+                            <div style={{borderTop:'2px solid #FFF', marginTop:'5px'}}/>
+                            <li className={styles.li}> 
+                                <Link href={"/"}>
+                                    <a>
+                                        <Icon style={{root: {textAlign:'center'}, fontSize:'45px', background:'#646363', borderRadius:'13px', padding:'10px', marginTop:'10px', marginLeft:'auto'}}>
+                                            <img style={{height:'100%', marginTop:'-52px', marginLeft:'-3px'}} src="/home.svg"/>
+                                        </Icon>
+                                        <p className={styles.nameNav}>
+                                            Inicio
+                                        </p>
+                                    </a>
+                                </Link> 
+                            </li>
+                            <li className={styles.li}> 
+                                <Link href={"/"}>
+                                    <a>
+                                        <Icon style={{root: {textAlign:'center'}, fontSize:'45px', borderRadius:'13px', padding:'10px', marginLeft:'auto'}}>
+                                            <img style={{height:'100%', marginTop:'-52px', marginLeft:'-3px'}} src="/tenencias.svg"/>
+                                        </Icon>
+                                        <p className={styles.nameNav}>
+                                            Tenencias
+                                        </p>
+                                    </a>
+                                </Link> 
+                            </li>
+                            <li className={styles.li}> 
+                                <Link href={"/"}>
+                                    <a>
+                                        <Icon style={{root: {textAlign:'center'}, fontSize:'45px', borderRadius:'13px', padding:'10px', marginLeft:'auto'}}>
+                                            <img style={{height:'100%', marginTop:'-52px', marginLeft:'-3px'}} src="/tenencias.svg"/>
+                                        </Icon>
+                                        <p className={styles.nameNav}>
+                                            Mercados
+                                        </p>
+                                    </a>
+                                </Link> 
+                            </li>
+                            <li className={styles.li}> 
+                                <Link href={"/"}>
+                                    <a>
+                                        <Icon style={{root: {textAlign:'center'}, fontSize:'45px', borderRadius:'13px', padding:'10px', marginLeft:'auto'}}>
+                                            <img style={{height:'100%', marginTop:'-52px', marginLeft:'-3px'}} src="/procesos.svg"/>
+                                        </Icon>
+                                        <p className={styles.nameNav}>
+                                            Procesos
+                                        </p>
+                                    </a>
+                                </Link> 
+                            </li>
+                            <li className={styles.li}> 
+                                <Link href={"/"}>
+                                    <a>
+                                        <Icon style={{root: {textAlign:'center'}, fontSize:'45px', borderRadius:'13px', padding:'10px', marginLeft:'auto'}}>
+                                            <img style={{height:'100%', marginTop:'-52px', marginLeft:'-3px'}} src="/reportes.svg"/>
+                                        </Icon>
+                                        <p className={styles.nameNav}>
+                                            Procesos
+                                        </p>
+                                    </a>
+                                </Link> 
+                            </li>
                         </ul>
-                    <div className={styles.contenedorHelp}>
-                        <div className={styles.menuHelp} onClick={e => Router.push(item.url, item.url)}>
-                            <Image
-                                src={'/signoInt.png'}
-                                alt={'Ayuda'}
-                                width={25}
-                                height={25}
-                            />
+                        <div style={{marginTop:'180px'}}>
+                            <div className={styles.menuHelp} onClick={e => Router.push(item.url, item.url)}>
+                                <Icon style={{root: {textAlign:'center'}, fontSize:'45px', borderRadius:'13px', padding:'10px', marginLeft:'auto'}}>
+                                    <img style={{height:'100%', marginTop:'-52px', marginLeft:'-3px'}} src="/help.svg"/>
+                                </Icon>
+                            </div>
                         </div>
                     </div>
                 </nav>
-                <div className="col-xs-12 col-sm-11 col-xxl-11">
+                <div className="col-xs-12 col-sm-12 col-lg-11 col-xxl-11">
                     <main>
                         {children}
                     </main>
                 </div>
             </div>
-            {/* <div className="row">
-                <div className="col-sm-1" style={{background:'red'}}>
-                    ASDSAD
-                </div>
-
-                <div className='col-sm-11' style={{background:'yellow'}}>
-                    asdasdasdasds Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero hic provident quibusdam voluptates quae? Laborum eos veniam impedit praesentium debitis et. Inventore tempora ratione nam, repudiandae voluptate omnis eligendi vero!
-                </div>
-            </div> */}
         </div>
     )
 }

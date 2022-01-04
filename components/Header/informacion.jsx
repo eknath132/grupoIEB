@@ -6,7 +6,8 @@ import style from '../../styles/informacion.module.css'
 import { Button } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import {Search, SearchIconWrapper, StyledInputBase} from '../../util/search'
+import {Search, SearchIconWrapper, StyledInputBase} from '../../util/search';
+import SearchIcon from '@mui/icons-material/Search';
 
 const informacion = ({title, name, subtitle, active, avatar}) => {
     const [anchorEl, setAnchorEl] = useState(false);
@@ -19,19 +20,14 @@ const informacion = ({title, name, subtitle, active, avatar}) => {
     };
     return (
         <div className='row'>
-            <div className={'col-sm-12 col-md-6'}>
+            <div className={'col-xs-12 col-md-6'}>
                 <h3 className={style.title}> {title} </h3>
                 <p className={style.name}> {name} </p>
             </div>
             <div className='col-sm-12 col-md-6 d-flex justify-content-end align-items-center'>
                 <Search>
                     <SearchIconWrapper>
-                        <Image 
-                            alt="imagen"
-                            src={"/buscar.png"}
-                            width={20}
-                            height={20}
-                        />
+                        <SearchIcon/>
                     </SearchIconWrapper>
                     <StyledInputBase/>
                 </Search>
