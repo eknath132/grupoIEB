@@ -27,8 +27,6 @@ const Cuentas = () => {
           align: 'left'
         }
     ];
-
-    console.log('columns', columns)
       
       
     return (

@@ -1,9 +1,9 @@
 import style from '../../styles/principal.module.css'
+import CircleIcon from '@mui/icons-material/Circle';
 
 
 const comisiones = ({value, mesAnterior, mesActual}) => {
     const progress = (value) => {
-        console.log('hola')
         if(value <= '25') {
             return (
                 <div 
@@ -66,7 +66,7 @@ const comisiones = ({value, mesAnterior, mesActual}) => {
                             </h4>
                         </div>
                     </div>
-                    <div className={`${style.objetivoBox} col-md-12 col-lg-6 col-xl-7 col-xxl-8`}>
+                    <div className={`${style.objetivoBox} col-md-12 col-lg-7 col-xl-8 col-xxl-8`}>
                         <div className={`${style.objetivoButton} col-md-12`}> 
                                 <p>
                                     Lejos del objetivo
@@ -82,12 +82,14 @@ const comisiones = ({value, mesAnterior, mesActual}) => {
                         </div>
                         <div className={` ${style.progressBottom} col-md-12`}> 
                             <span className={style.numberBottom}>
+                                <CircleIcon sx={{fontSize:'10px', color:'#F96000'}}/>
                                 {mesActual} 
                                 <span className={style.textBottomLeft}>
                                     Mes Actual
                                 </span>
                             </span>
                             <span className={style.numberBottom}>
+                                <CircleIcon sx={{fontSize:'10px', color:'#84A4AC'}}/>
                                 {mesAnterior}
                                 <span className={style.textBottomLeft}>
                                     Mes anterior

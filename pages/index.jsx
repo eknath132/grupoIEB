@@ -12,7 +12,7 @@ const Index = ({data}) => {
             title= "Inicio"
             description={"Pantalla Principal"}
         >
-            <header className='container'>
+            <header className={`${Styles.container}`}>
                 <Informacion
                     title={'Inicio| Panel principal'}
                     name={'Productor 1'}
@@ -21,9 +21,9 @@ const Index = ({data}) => {
                 />
             </header>
 
-            <section style={{marginTop: '10px'}}>
-                <div className="container">
-                        <Principal precio={'75 Bil'}/>
+            <section style={{marginTop: '10px', marginLeft:'30px'}}>
+                <div>
+                    <Principal precio={'75 Bil'}/>
                 </div>
             </section>
         </Layout>

@@ -5,7 +5,6 @@ import Layout from '../../components/layout';
 import home from '../../styles/Home.module.css';
 
 const Id = ({data, warning}) => {
-    console.log('resData', data)
     return (
         <Layout
             title= "About"

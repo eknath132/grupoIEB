@@ -17,7 +17,6 @@ export default function avatar({title, subtitle, avatar}) {
     const [anchorEl, setAnchorEl] = useState(false);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
-        console.log('event', Boolean(anchorEl))
         setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {

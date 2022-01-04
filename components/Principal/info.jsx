@@ -1,13 +1,17 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from 'react';
 import style from '../../styles/principal.module.css';
-import Image from 'next/image'
+import Image from 'next/image';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
 
 const info = () => {
     const [selected, setSelected] = useState(true)
 
     return (
-        <div className='col-md-6 col-lg-5 col-xl-4'>
+        <div className={`${style.infoBox} col-md-6 col-lg-6 col-xl-4`}>
             <div className={`${style.infoRow} row`}> 
                 <div className={`${style.infoTitle} col-md-6`}>
                     Dolar
@@ -33,30 +37,30 @@ const info = () => {
             </div>
 
             <div className={`${style.infoCarrousel}`}>
-                <div className='row'>
-                    <div className={`${style.infoButtonLeft} col`}>
-                            {`<`}
+                    <div style={{marginLeft:'60px', display:'flex'}}>
+                        <ArrowBackIosNewIcon sx={{position:'absolute', marginLeft:'-30px', marginTop:'50px'}}/>
+                        <div className={`${style.infoLeft} col-md-6`}>
+                                Tarjeta con info
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Asperiores dolorem nostrum quas quae, voluptatibus facilis eos veritatis nesciunt excepturi 
+                                </p>
+                        </div>
+                        <div className={`${style.infoColImage} col-md-6`}>
+                                <Image
+                                    src={'/info.png'}
+                                    alt='información'
+                                    width={100}
+                                    height={100}
+                                    className={style.infoImage}
+                                />
+                        </div>
+                        <ArrowForwardIosIcon sx={{position:'absolute', marginLeft:'210px', marginTop:'50px', color:'#A7C9B9'}}/>
                     </div>
-                    <div className={`${style.infoLeft} col`}>
-                            Tarjeta con info
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Asperiores dolorem nostrum quas quae, voluptatibus facilis eos veritatis nesciunt excepturi 
-                            </p>
+                    <div className={style.infoSee}>
+                        Ver todos
+                        <ArrowForwardIcon sx={{color:'#365848'}}/>
                     </div>
-                    <div className={`${style.infoColImage} col`}>
-                            <Image
-                                src={'/info.png'}
-                                alt='información'
-                                width={150}
-                                height={200}
-                                className={style.infoImage}
-                            />
-                    </div>
-                    <div className={`${style.infoButtonRight} col`}>
-                        {`>`}
-                    </div>
-                </div>
             </div>
         </div>
     )

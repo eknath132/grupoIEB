@@ -1,5 +1,5 @@
 import style from '../../styles/principal.module.css';
-
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const cauciones = () => {
     const clientes = [
@@ -35,19 +35,23 @@ const cauciones = () => {
                 <p> 55 </p>
                 <p> Próximos a vencer</p>
             </div>
-                {clientes.map(cli => { console.log(cli)
-                   return ( 
-                            <div key={cli.cliente} className={style.caucionesClienteBox}>
-                                <span className={style.caucionesCliente}>
-                                    {cli.cliente}
-                                    <p>N°: {cli.numComitente}</p>
-                                </span>
-                                <span className={style.caucionesDinero}>
-                                    {` $${cli.plata}`}
-                                </span>
-                            </div>
-                    )
-                })}
+            {clientes.map(cli => {
+                return ( 
+                    <div key={cli.cliente} className={style.caucionesClienteBox}>
+                        <span className={style.caucionesCliente}>
+                            {cli.cliente}
+                            <p>N°: {cli.numComitente}</p>
+                        </span>
+                        <span className={style.caucionesDinero}>
+                            {` $${cli.plata}`}
+                        </span>
+                    </div>
+                )
+            })}
+            <div className={style.seeAll}>
+                Ver Todos
+                <ArrowForwardIcon sx={{color:'#365848'}}/>
+            </div>
         </div>
     )
 }
