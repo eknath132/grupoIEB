@@ -5,13 +5,13 @@ import DisponiblesScreen from '../../components/Disponibles';
 const Disponibles = ({data}) => {
     return (
         <Layout
-            title= "Compliance"
-            description={"Pantalla Principal"}
+            title= "Disponibles"
+            description={"Pantalla Disponibles"}
         >
             <header className='container'>
                 <Informacion
-                    title={'Compliance| Cuentas'}
-                    name={'Estado de cuenta'}
+                    title={'General| Disponibles'}
+                    name={'Disponibles'}
                     subtitle={'IEB'}
                     active={'Activo'}
                 />
