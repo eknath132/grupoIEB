@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
+import Router from 'next/router'
 import style from '../../styles/principal.module.css';
 import Image from 'next/image';
 import Tenencia from './tenencia';
@@ -47,9 +48,9 @@ const index = ({precio}) => {
                         </div> 
                     </div>
                     <div className='row'>
-                        <div className={`${style.tenenciaSee} col-sm-12`}>
+                        <div className={`${style.tenenciaSee} col-sm-12`} onClick={e => Router.push('disponibles', '/disponibles')}>
                             Ver más
-                            <ArrowForwardIcon sx={{color:'#323232'}}/>
+                            <ArrowForwardIcon sx={{color:'#323232', cursor:'pointer'}}/>
                         </div>
                     </div>
                 </div>
