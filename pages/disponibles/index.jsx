@@ -30,7 +30,7 @@ export default Disponibles;
 
 export async function getServerSideProps() {
     
-    const res = await fetch('http://localhost:3000/api/hello');
+    const res = await fetch('https://ieb-peralesazarel-gmailcom.vercel.app/api/hello');
     const data = await res.json();
     return {
         props: {data}
