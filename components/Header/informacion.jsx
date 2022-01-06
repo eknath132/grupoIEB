@@ -53,6 +53,7 @@ const informacion = ({title, name, subtitle, active, avatar}) => {
                     MenuListProps={{
                     'aria-labelledby': 'basic-button',
                     }}
+                    style={{marginLeft:'-40px', marginTop:'10px'}}
                 >
                     <MenuItem onClick={handleClose}>Perfil</MenuItem>
                     <MenuItem onClick={handleClose}>Cerrar Sesión</MenuItem>
