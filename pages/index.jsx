@@ -21,7 +21,7 @@ const Index = ({data}) => {
                 />
             </header>
 
-            <section style={{marginTop: '10px', marginLeft:'30px'}}>
+            <section>
                 <div>
                     <Principal precio={'75 Bil'}/>
                 </div>

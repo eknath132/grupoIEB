@@ -67,7 +67,7 @@ const cuentas = ({value, mesActual, mesAnterior}) => {
                                 </h4>
                             </div>
                         </div>
-                        <div className={`${style.objetivoBox} col-md-12 col-lg-7 col-xl-8 col-xxl-8`}>
+                        <div className={`${style.objetivoBox} col-md-12 col-lg-6 col-xl-7 col-xxl-8`}>
                             <div className={`${style.objetivoButton} col-md-12`}> 
                                     <p>
                                         Lejos del objetivo

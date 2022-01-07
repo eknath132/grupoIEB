@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
-import Router from 'next/router'
+import { useState } from 'react';
+import Router from 'next/router';
 import style from '../../styles/principal.module.css';
 import Image from 'next/image';
 import Tenencia from './tenencia';
@@ -12,11 +14,29 @@ import Info from './info';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Icon from '@mui/material/Icon';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { CSSTransition } from "react-transition-group";
+import { urlObjectKeys } from 'next/dist/shared/lib/utils';
 
 const index = ({precio}) => {
+
+    const [showList, setShowList] = useState(true)
+    const [highlightedHobby, setHighlightedHobby] = useState(false)
+
+
+    const sswitch = () => {
+        setShowList(showList ? false : true);
+      };
+    
+     const listSwitch = () => {
+        setHighlightedHobby(state => ({
+          highlightedHobby: !state.highlightedHobby
+        }));
+      };
+
     return (
         <>
-            <div className="row">
+            <div className="row" style={{paddingLeft: '30px', marginBottom: '20px'}}>
                 <div className='col-md-5' style={{marginRight:'55px'}}>
                     <div className={`${style.header} row`}>
                         <div className="col-md-12 col-lg-4 p-2">
@@ -35,24 +55,38 @@ const index = ({precio}) => {
                                 <p>
                                     75Bil
                                 </p>
-                                <KeyboardArrowUpIcon className={style.arrowUpDisponible}/>
+                                {
+                                    showList 
+                                    ? <KeyboardArrowUpIcon className={style.arrowUpDisponible} onClick={sswitch} sx={{cursor:'pointer'}} />
+                                    : <KeyboardArrowDownIcon className={style.arrowUpDisponible} onClick={sswitch} sx={{cursor:'pointer'}} />
+                                }
                             </div>
                         </div>
                     </div>
-                    <div className='row'>
-                        <div className='col-md-12 col-lg-6 p-3'>
-                            <Tenencia monto='75.000'/>
+                    <CSSTransition
+                        in={showList}
+                        timeout={400}
+                        classNames="list-transition"
+                        unmountOnExit
+                        appear
+                    >
+                        <div>
+                            <div className='row box-transition'>
+                                <div className='col-md-12 col-lg-6 p-3'>
+                                    <Tenencia monto='75.000'/>
+                                </div>
+                                <div className='col-md-12 col-lg-6 p-3'>
+                                    <Tenencia monto='6 Bil'/>
+                                </div> 
+                            </div>
+                            <div className='row'>
+                                <div className={`${style.tenenciaSee} col-sm-12`} onClick={e => Router.push('disponibles', '/disponibles')}>
+                                    Ver más
+                                    <ArrowForwardIcon sx={{color:'#323232', cursor:'pointer'}}/>
+                                </div>
+                            </div>
                         </div>
-                        <div className='col-md-12 col-lg-6 p-3'>
-                            <Tenencia monto='6 Bil'/>
-                        </div> 
-                    </div>
-                    <div className='row'>
-                        <div className={`${style.tenenciaSee} col-sm-12`} onClick={e => Router.push('disponibles', '/disponibles')}>
-                            Ver más
-                            <ArrowForwardIcon sx={{color:'#323232', cursor:'pointer'}}/>
-                        </div>
-                    </div>
+                    </CSSTransition>
                 </div>
                 <div className='col'>
                     <div className='col-sm-12'>
@@ -60,7 +94,7 @@ const index = ({precio}) => {
                     </div>
                 </div>
             </div>
-            <div className='row mt-5'>
+            <div className="row" style={{paddingLeft: '30px'}}>
                 <Cauciones/>
                 <Apalancamiento/>
                 <Compliance/>
