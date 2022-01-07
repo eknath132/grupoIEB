@@ -5,6 +5,10 @@
   padding-top: 10px;
 }
 
+.container {
+  padding-left: 25px;
+}
+
 @media only screen and (max-width: 991px) {
   .container {
     width: 100%;

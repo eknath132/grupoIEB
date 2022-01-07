@@ -2,7 +2,7 @@
     max-width: 100%;
     height: 100%;
     padding: 0 2rem;
-    margin: 1rem;
+    margin: 1rem 3rem 1rem 1rem; 
 }
 
 .logo {
@@ -12,10 +12,10 @@
 .nav {
     background: linear-gradient(153.08deg, rgba(114, 169, 143, 0.9) 14.3%, rgba(67, 58, 63, 0.9 ) 87.79%);  padding: 5px;
     border-radius: 30px;
-    padding: 0 10px;
+    padding: 20px 10px;
     min-width: 40px;
     min-height: 600px;
-    margin-top: 30px;
+    margin-top: 15px;
     word-wrap: break-word;
 }
 

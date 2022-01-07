@@ -37,8 +37,8 @@ const info = () => {
             </div>
 
             <div className={`${style.infoCarrousel}`}>
-                    <div style={{marginLeft:'80px', display:'flex'}}>
-                        <ArrowBackIosNewIcon sx={{position:'absolute', marginLeft:'-30px', marginTop:'50px', color:'#A7C9B9'}}/>
+                    <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+                        <ArrowBackIosNewIcon sx={{marginTop:'50px', color:'#A7C9B9'}}/>
                         <div className={`${style.infoLeft} col-md-6`}>
                                 Tarjeta con info
                                 <p>
@@ -46,7 +46,7 @@ const info = () => {
                                     Asperiores dolorem nostrum quas quae, voluptatibus facilis eos veritatis nesciunt excepturi 
                                 </p>
                         </div>
-                        <div className={`${style.infoColImage} col-md-6`}>
+                        <div className={`${style.infoColImage} col-md-4`}>
                                 <Image
                                     src={'/info.png'}
                                     alt='información'
@@ -55,7 +55,7 @@ const info = () => {
                                     className={style.infoImage}
                                 />
                         </div>
-                        <ArrowForwardIosIcon sx={{position:'absolute', marginLeft:'210px', marginTop:'50px', color:'#A7C9B9'}}/>
+                        <ArrowForwardIosIcon sx={{marginTop:'50px', color:'#A7C9B9'}}/>
                     </div>
                     <div className={style.infoSee}>
                         Ver todos

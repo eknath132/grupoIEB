@@ -3,11 +3,12 @@
     display: flex;
     justify-content: space-between;
     background: rgb(183,222,237); /* Old browsers */
-    background: -moz-linear-gradient(-45deg, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 50%, rgba(33,180,226,1) 51%, rgba(183,222,237,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, rgba(61, 90, 108,1) 0%,rgba(113,206,239,1) 50%,rgba(33,180,226,1) 51%,rgba(183,222,237,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(140deg, rgba(61, 90, 108,1) 0%,rgba(61, 90, 108,1) 50%,rgba(61, 90, 108,0.9) 51%,rgba(61, 90, 108,0.9) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#b7deed',GradientType=1 ); IE6-9 fallback on horizontal gradient    min-height: 100px; */
+    background: -moz-linear-gradient(-45deg, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 50%, rgba(33,180,226,1) 50%, rgba(183,222,237,1) 100%); /* FF3.6-15*/ 
+    background: -webkit-linear-gradient(-45deg, rgba(61, 90, 108,1) 0%,rgba(113,206,239,1) 50%,rgba(33,180,226,1) 50%,rgba(183,222,237,1) 100%); /*Chrome10-25,Safari5.1-6 */ 
+    background: linear-gradient(140deg, rgba(61, 90, 108,1) 0%,rgba(61, 90, 108,1) 50%,rgba(61, 90, 108,0.9) 51%,rgba(61, 90, 108,0.9) 100%);/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
+    /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#b7deed',GradientType=1 ); /*IE6-9 fallback on horizontal gradient    min-height: 100px; */ 
     padding: 10px 10px;
+    position: relative;
     border-radius: 19px 19px 0 0;
 }
 
@@ -94,6 +95,42 @@
 
 /*  */
 
+.transitionTenencia-enter,
+.transitionTenencia-appear {
+  /*We give the list the initial dimension of the list button*/
+  top: 0;
+  width: 120px;
+  max-height: 40px;
+  color: transparent;
+  background-color: #5a564c;
+}
+/* This is where we can add the transition*/
+.transitionTenencia-enter-active,
+.transitionTenencia-appear-active {
+  top: 45px;
+  width: 200px;
+  max-height: 200px;
+  background-color: #9e8949;
+  transition: all 400ms;
+}
+
+/* This fires as soon as the this.state.showList is false */
+.transitionTenencia-exit {
+  top: 45px;
+  width: 200px;
+  max-height: 200px;
+  background-color: #9e8949;
+}
+/* fires as element leaves the DOM*/
+.list-transition-exit-active {
+  top: 0;
+  width: 120px;
+  max-height: 40px;
+  color: transparent;
+  background-color: #5a564c;
+  transition: all 400ms;
+}
+
 /* Tenencia */
 .tenenciaBox {
     width: 100%;
@@ -165,10 +202,12 @@
     box-shadow: 0px 4px 45px rgba(0, 0, 0, 0.07);
     display: flex;
     justify-content: space-between;
+    margin-right: 20px;
 }
 
 .cuentasBoxLeft h3 {
     margin-top: 24px;
+    margin-bottom: 10px;
     color: #A7C9B9;
     font-size: 16px;
     max-height: 10px;
@@ -189,6 +228,7 @@
 .comisionesBoxLeft h3{
     margin-top: 26px;
     color: #FFF;
+    margin-bottom: 10px;
     max-height: 10px;
     font-size: 22px;
     line-height: 10px;
@@ -207,6 +247,7 @@
 .cuentasBoxRight h3 {
     color: #FFF;
     max-height: 10px;
+    margin-bottom: 10px;
     margin-top: 27px;
     font-size: 24px;
     line-height: 10px;
@@ -379,6 +420,9 @@
     font-weight: bold;
     color: #fff;
     padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .seeAll {
@@ -579,12 +623,12 @@
     width: 60px;
     border-radius: 18px;
     background-color: #fff;
-    border: 1px solid blue;
+    border: 1px solid #323232;
     height: 10px;
     line-height: 1px;
     font-size: 12px;
     font-weight: 500;
-    color: #354F5E;
+    color: #323232;
     text-align: center;
     margin: 10px auto;
 }
@@ -594,25 +638,26 @@
     max-width: 61%;
     background: #E8E3E6;
     margin: 20px auto;
-    height: 60px;
+    height: 50px;
     border-radius: 19px;
 }
 
 .infoSelect {
     background-color: #365848;
     border-radius: 19px;
-    padding-left: 23px;
-    height: 60px;
-    line-height: 60px;
+    height: 50px;
+    line-height: 50px;
     font-size: 10px;
     font-weight: bold;
     color: #FFF;
     cursor: pointer;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .infoDisabled {
-    height: 60px;
+    height: 50px;
     line-height: 60px;
     text-align: center;
     font-size: 10px;
@@ -621,6 +666,9 @@
     border-radius: 19px;
     cursor: pointer;
     background: #E8E3E6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -630,7 +678,6 @@
     height: 250px;
     margin: -20px auto -10px auto;
     border-radius: 20px;
-    position: absolute;
 } 
 
 .infoButtonLeft {
@@ -647,7 +694,7 @@
 
 .infoLeft {
     max-width: 40%;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
     font-size: 24px;
     margin-top: 20px;
@@ -655,6 +702,7 @@
     letter-spacing: -0.02em;
     padding-left:0;
     color: #1B2559;
+    margin-left:20px;
 }
 
 .infoLeft p {
@@ -664,7 +712,6 @@
 }
 
 .infoColImage{
-    /* width: 60%; */
     font-weight: bold;
     font-size: 24px;
     margin-top: 20px;
@@ -672,10 +719,12 @@
     letter-spacing: -0.02em;
     padding:0;
     color: #1B2559;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
 }
 
 .infoImage{
-    /* width: 60%; */
     font-weight: bold;
     font-size: 24px;
     margin-top: 60px;
@@ -691,7 +740,6 @@
     margin-top: 100px;
     color: #1B2559;
     text-align: center;
-    cursor: pointer;
 }
 
 .infoSee {
@@ -702,6 +750,9 @@
     padding-right: 50px;
 }
 
+.infoBox {
+    background-color: 'red';
+}
 
 /*  */
 

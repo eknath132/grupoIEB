@@ -4,10 +4,6 @@ import InputBase from '@mui/material/InputBase';
 export const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: '40px',
-    // backgroundColor: '#fff3f3',
-    // '&:hover': {
-    //   backgroundColor: '#fff3f3',
-    // },
     boxShadow: '0px 1px 10px 1px rgba(0, 0, 0, 0.08)',
     marginLeft: 0,
     width: '100%',
@@ -18,10 +14,9 @@ export const Search = styled('div')(({ theme }) => ({
   }));
   
 export const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
+    padding: theme.spacing(0, 1),
     height: '100%',
     position: 'absolute',
-    pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -37,8 +32,10 @@ export const SearchIconWrapper = styled('div')(({ theme }) => ({
       width: '100%',
       [theme.breakpoints.up('sm')]: {
         width: '0.5ch',
+        cursor: 'default',
         '&:focus': {
           width: '20ch',
+          cursor: 'auto',
         },
       },
     },

@@ -148,7 +148,7 @@ export default function layout({children, title, description}) {
                                 </Link> 
                             </li>
                         </ul>
-                        <div style={{marginTop:'180px'}}>
+                        <div style={{marginTop:'140px'}}>
                             <div className={styles.menuHelp} onClick={e => Router.push(item.url, item.url)}>
                                 <Icon style={{root: {textAlign:'center'}, fontSize:'45px', borderRadius:'13px', padding:'10px', marginLeft:'auto'}}>
                                     <img style={{height:'100%', marginTop:'-52px', marginLeft:'-3px'}} src="/help.svg"/>
