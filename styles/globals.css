@@ -6,6 +6,8 @@ html,
 body {
   padding: 0;
   margin: 0;
+  height: 100%;
+  width: 100%;
 }
 a {
   color: inherit;
@@ -21,37 +23,19 @@ h1 {
   font-family: 'DM Sans', sans-serif;
 }
 
-/* .list {
-  padding: 0;
-  list-style-type: none;
-} */
+/* Transition pagina principal componente disponibles */
 
-/* .list-item {
-  padding: 5px 0;
-} */
-
-/* .list-item--active {
-  color: blue;
-  transition: color 1500ms;
-} */
-
-/* This fires as soon as the element enters the dorm */
 .list-transition-enter,
 .list-transition-appear {
-  /*We give the list the initial dimension of the list button*/
   top: -20px;
   width: 100%;
-  max-height: 40px;
   color: transparent;
-  /* background-color: rgba(156, 151, 151, 0.199); */
 }
-/* This is where we can add the transition*/
+
 .list-transition-enter-active,
 .list-transition-appear-active {
   top: 45px;
   width: 100%;
-  /* max-height: 200px; */
-  /* background-color: rgba(156, 151, 151, 0.199); */
   transition: all 600ms;
 }
 
@@ -67,23 +51,27 @@ h1 {
 
 }
 
-/* This fires as soon as the this.state.showList is false */
 .list-transition-exit {
   top: 45px;
   width: 100%;
   max-height: 200px;
 }
-/* fires as element leaves the DOM*/
+
 .list-transition-exit-active {
   top: -20px;
   width: 100%;
-  max-height: 5px;
-  color: transparent;
-  /* z-index: -3; */
   transition: all 300ms;
 }
 
 .list-transition-exit-active .box-transition{
-  margin-top: -118px;
+  margin-top: -150px;
+  z-index: -2;
   transition: all 300ms;
 }
+
+.imgBack {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), url('../public/grafico.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+/*  */

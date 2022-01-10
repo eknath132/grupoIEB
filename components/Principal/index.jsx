@@ -37,7 +37,7 @@ const index = ({precio}) => {
     return (
         <>
             <div className="row" style={{paddingLeft: '30px', marginBottom: '20px'}}>
-                <div className='col-md-5' style={{marginRight:'55px'}}>
+                <div className='col-md-5' style={{marginRight:'55px'}} >
                     <div className={`${style.header} row`}>
                         <div className="col-md-12 col-lg-4 p-2">
                             <div className={`${style.disponibleH5} col-xs-12`}>
@@ -70,7 +70,10 @@ const index = ({precio}) => {
                         unmountOnExit
                         appear
                     >
-                        <div>
+                        <div 
+                            className='imgBack' 
+                            // style={{background:'red'}}
+                        >
                             <div className='row box-transition'>
                                 <div className='col-md-12 col-lg-6 p-3'>
                                     <Tenencia monto='75.000'/>
