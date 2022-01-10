@@ -70,7 +70,7 @@ h1 {
 }
 
 .imgBack {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), url('~/public/grafico.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), url('https://ieb-peralesazarel-gmailcom.vercel.app/grafico.jpg');
   background-repeat: no-repeat;
   background-position: bottom;
 }
