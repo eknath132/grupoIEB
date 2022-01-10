@@ -23,7 +23,7 @@ const informacion = ({title, name, subtitle, active, avatar}) => {
     };
     return (
         <div className='row'>
-            <div className={'col-xs-12 col-md-6'}>
+            <div className={'col-xs-12 col-md-6'} style={{background:'#fff', zIndex:'2'}}>
                 <h3 className={style.title}> {title} </h3>
                 <p className={style.name}> {name} </p>
             </div>

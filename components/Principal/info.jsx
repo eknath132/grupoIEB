@@ -11,7 +11,7 @@ const info = () => {
     const [selected, setSelected] = useState(true)
 
     return (
-        <div className={`${style.infoBox} col-md-6 col-lg-6 col-xl-4`}>
+        <div className={`${style.infoBox} col-md-6 col-lg-4 col-xl-4`}>
             <div className={`${style.infoRow} row`}> 
                 <div className={`${style.infoTitle} col-md-6`}>
                     Dolar
