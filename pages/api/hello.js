@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import body from './disponiblesObjects.json'
+import body from './disponiblesEnero.json'
 
 export default function handler(req, res) {
   if (req.method === 'GET') {

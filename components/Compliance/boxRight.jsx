@@ -1,6 +1,6 @@
 import style from '../../styles/compliance.module.css';
 import Card from './card'
-const boxRight = () => {
+const boxRight = ({nombre, estado}) => {
     return (
         <div className='row'>
             <div className='col-md-12 col-xl-6'>
@@ -37,7 +37,8 @@ const boxRight = () => {
                     </div>
                 </div>
             </div>
-            <Card/>
+            {nombre && <Card nombre={nombre} estado={estado}/>}
+            
             
         </div>
     )

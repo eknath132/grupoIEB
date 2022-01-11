@@ -1,8 +1,10 @@
+import {useState} from 'react'
 import Informacion from '../../components/Header/informacion'
 import Layout from '../../components/layout';
 import DisponiblesScreen from '../../components/Disponibles';
 
 const Disponibles = ({data}) => {
+    
     return (
         <Layout
             title= "Disponibles"
@@ -19,7 +21,9 @@ const Disponibles = ({data}) => {
 
             <section style={{marginTop: '10px'}}>
                 <div className="container">
-                    <DisponiblesScreen data={data}/>
+                    <DisponiblesScreen 
+                        data={data}
+                    />
                 </div>
             </section>
         </Layout>

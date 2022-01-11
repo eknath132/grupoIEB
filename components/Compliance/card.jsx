@@ -2,7 +2,7 @@ import style from '../../styles/compliance.module.css';
 import Avatar from '@mui/material/Avatar';
 import Image from 'next/image';
 
-const Card = () => {
+const Card = ({nombre, estado}) => {
     return (
         <div className='col-md-12'>
             <div className={`${style.cuentaCard} col-md-12`}>
@@ -10,7 +10,7 @@ const Card = () => {
                     <div className='col-lg-12 col-xl-6' style={{display:'flex'}}>
                         <Avatar alt="Remy Sharp"   sx={{ width: 56, height: 56}}/>
                         <div className={style.cardCliente}>
-                            CLIENTE
+                            {nombre}
                             <p>
                                 N° comitente
                             </p>
@@ -18,13 +18,13 @@ const Card = () => {
                     </div>
                     <div className='col-lg-12 col-xl-5'>
                         <p className={style.cuentaType}>
-                            Tipo de cliente
+                            Tipo de Perfil
                         </p>
                     </div>
                 </div>
                 <hr style={{backgroundColor:'#3D5A6C'}}/>
                 <div className={`${style.cuentaState} col-md-12`}>
-                    Estado de cuenta
+                    {estado}
                 </div>
                 <div className='row' style={{marginTop:'20px', padding:'10px 0'}}>
                     <div className='col-md-9' style={{display:'flex'}}>

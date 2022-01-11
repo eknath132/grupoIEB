@@ -21,19 +21,12 @@ import { urlObjectKeys } from 'next/dist/shared/lib/utils';
 const index = ({precio}) => {
 
     const [showList, setShowList] = useState(true)
-    const [highlightedHobby, setHighlightedHobby] = useState(false)
 
 
     const sswitch = () => {
         setShowList(showList ? false : true);
       };
     
-     const listSwitch = () => {
-        setHighlightedHobby(state => ({
-          highlightedHobby: !state.highlightedHobby
-        }));
-      };
-
     return (
         <>
             <div className="row" style={{paddingLeft: '30px', marginBottom: '20px'}}>
@@ -70,10 +63,7 @@ const index = ({precio}) => {
                         unmountOnExit
                         appear
                     >
-                        <div 
-                            className='imgBack' 
-                            // style={{background:'red'}}
-                        >
+                        <div className='imgBack'>
                             <div className='row box-transition'>
                                 <div className='col-md-12 col-lg-6 p-3'>
                                     <Tenencia monto='75.000'/>
