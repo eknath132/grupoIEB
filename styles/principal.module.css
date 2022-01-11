@@ -68,6 +68,9 @@
     margin-top: 12px;
     color: #FFF;
 }
+.arrowUpDisponible:hover {
+    background: green;
+}
 
 .menuIcons {
     text-align: center;

@@ -6,7 +6,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-const tableCompliance = ({columns}) => {
+const tableCompliance = ({columns, handdleActiva}) => {
     function createData(name, count, state) {
         return { name, count, state};
     }
@@ -63,7 +63,7 @@ const tableCompliance = ({columns}) => {
                                         return(
                                             <TableCell key={column.id} align={column.align} style={{color:'red', fontSize: '12px', display:'flex', justifyContent:'space-between', lineHeight: '30px'}}>
                                                 {value}
-                                                <button className='btn' style={{border:'1px solid red', borderRadius:'20px', maxWidth:'100px', maxHeight:'40px'}}>
+                                                <button className='btn' style={{border:'1px solid red', borderRadius:'20px', maxWidth:'100px', maxHeight:'40px'}} onClick={() => handdleActiva(row.name, row.state)}>
                                                     Actualizar
                                                 </button>
                                             </TableCell>
@@ -73,7 +73,7 @@ const tableCompliance = ({columns}) => {
                                         return(
                                             <TableCell key={column.id} align={column.align} style={{color:'green', fontSize: '12px', display:'flex', justifyContent:'space-between', lineHeight: '30px'}}>
                                                 {value}
-                                                <button className='btn' style={{border:'1px solid green', borderRadius:'20px', minWidth:'100px'}}>
+                                                <button className='btn' style={{border:'1px solid green', borderRadius:'20px', minWidth:'100px'}} onClick={() => handdleActiva(row.name, row.state)}>
                                                     ver
                                                 </button>
                                             </TableCell>

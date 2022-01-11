@@ -7,6 +7,8 @@ import {
 import Styles from '../../styles/about.module.css';
 import styleCompliance from '../../styles/compliance.module.css'
 import Cuentas from './cuentas'
+import Modal from '../../util/modal'
+
 
 const index = () => {
     return (
@@ -31,6 +33,8 @@ const index = () => {
                     </button>
                 </div>
                 <Cuentas/>
+                <div>           
+            </div>
         </div>
     )
 }

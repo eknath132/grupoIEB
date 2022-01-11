@@ -6,6 +6,9 @@ import Image from 'next/image';
 
 const Cuentas = () => {
 
+    const [nombre , setNombre] = useState('')
+    const [estado, setEstado] = useState('')
+
     const columns = [
         { 
             id: 'name',
@@ -27,7 +30,13 @@ const Cuentas = () => {
           align: 'left'
         }
     ];
-      
+
+    const handdleActiva = (nombre, estado) => {
+        setNombre(nombre)
+        setEstado(estado)
+    }
+
+    console.log(nombre, estado)
       
     return (
         <div className="row mt-4">
@@ -74,10 +83,10 @@ const Cuentas = () => {
                         </div>
                     </div>
                 </div>
-                <Table columns={columns}/>
+                <Table columns={columns} handdleActiva={handdleActiva}/>
             </div>
             <div className="col-md-12 col-lg-5 ">
-                <BoxRight/>
+                <BoxRight nombre={nombre} estado={estado}/>
             </div>
         </div>
     )

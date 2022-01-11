@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/rules-of-hooks */
 import {useState} from 'react'
 import { styled } from '@mui/material/styles';
@@ -9,6 +11,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
 import { makeStyles } from '@mui/styles';
+import Icon from '@mui/material/Icon';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const tableCompliance = ({columns, data}) => {
+const tableDisponibles = ({columns, data, handdleClickModal}) => {
     const classes = useStyles();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -75,13 +79,25 @@ const tableCompliance = ({columns, data}) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {data.Disponibles
+                        {data
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         .map((row) => {
                             return (
                             <StyledTableRow tabIndex={-1} key={row.code}>
                                 {columns.map((column) => {
                                 const value = row[column.id];
+                                if(column.id === 'comitente') {
+                                    return(
+                                        <TableCell key={column.id} align={column.align} style={{fontSize: '11px', fontWeight: 'normal', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
+                                            <div  style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
+                                                <Icon style={{root: {textAlign:'center'}, fontSize:'25px',padding:'10px', cursor:'pointer'}} onClick={() => handdleClickModal(row.nombre)}>
+                                                    <img style={{height:'600%', marginTop:'-35px', marginLeft:'-14px'}} src="/launch.svg"/>
+                                                </Icon>
+                                                {value}
+                                            </div>
+                                        </TableCell>
+                                    )
+                                }
                                 if(column.id === 'nombre') {
                                     return(
                                         <TableCell key={column.id} align={column.align} style={{fontSize: '11px', fontWeight: 'normal', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
@@ -118,7 +134,7 @@ const tableCompliance = ({columns, data}) => {
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
-                count={data.Disponibles.length}
+                count={data.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}
@@ -129,4 +145,4 @@ const tableCompliance = ({columns, data}) => {
     )
 }
 
-export default tableCompliance;
+export default tableDisponibles;
