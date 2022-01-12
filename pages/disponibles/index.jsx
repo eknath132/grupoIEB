@@ -12,7 +12,7 @@ const Disponibles = ({data}) => {
         >
             <header className='container'>
                 <Informacion
-                    title={'General| Disponibles'}
+                    title={'General | Disponibles'}
                     name={'Disponibles'}
                     subtitle={'IEB'}
                     active={'Activo'}

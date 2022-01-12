@@ -39,7 +39,7 @@ const filtros = ({
                 />
              </Stack>
             <FormControl sx={{ marginTop: 3, minWidth: 120,}}>
-                <InputLabel id="demo-simple-select-autowidth-label">Productor</InputLabel>
+                <InputLabel id="demo-simple-select-autowidth-label" style={{marginTop:'-5px'}}>Productor</InputLabel>
                 <Select
                     labelId="demo-simple-select-autowidth-label"
                     id="demo-simple-select-autowidth"
