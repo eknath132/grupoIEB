@@ -78,7 +78,7 @@ const tableDisponibles = ({columns, data, handdleClickModal}) => {
                         ))}
                         </TableRow>
                     </TableHead>
-                    <TableBody>
+                    {/* <TableBody>
                         {data
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         .map((row) => {
@@ -128,7 +128,7 @@ const tableDisponibles = ({columns, data, handdleClickModal}) => {
                             </StyledTableRow>
                             );
                         })}
-                    </TableBody>
+                    </TableBody> */}
                 </Table>
             </TableContainer>
             <TablePagination
