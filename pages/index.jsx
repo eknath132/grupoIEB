@@ -14,7 +14,7 @@ const Index = ({data}) => {
         >
             <header className={`${Styles.container}`}>
                 <Informacion
-                    title={'Inicio| Panel principal'}
+                    title={'Inicio | Panel principal'}
                     name={'Productor 1'}
                     subtitle={'IEB'}
                     active={'Activo'}

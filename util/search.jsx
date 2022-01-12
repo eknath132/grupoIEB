@@ -31,7 +31,7 @@ export const SearchIconWrapper = styled('div')(({ theme }) => ({
       transition: theme.transitions.create('width'),
       width: '100%',
       [theme.breakpoints.up('sm')]: {
-        width: '0.5ch',
+        width: '0.1ch',
         cursor: 'default',
         '&:focus': {
           width: '20ch',

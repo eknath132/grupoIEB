@@ -10,7 +10,7 @@ const Compliance = () => {
         >
             <header className='container'>
                 <Informacion
-                    title={'Compliance| Cuentas'}
+                    title={'Compliance | Cuentas'}
                     name={'Estado de cuenta'}
                     subtitle={'IEB'}
                     active={'Activo'}

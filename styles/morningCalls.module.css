@@ -1,0 +1,296 @@
+/* Columna izquierda */
+
+.title {
+    font-size: 24px;
+    color: #3D5A6C;
+    letter-spacing: -0.02em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* .row{
+    background: red;
+} */
+
+.boxMorningCalls {
+    width:100%;
+    min-height:140px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 45px rgba(0,0, 0, 0.07);
+    margin-top: 10px;
+}
+
+.dayBox {
+    width:100%;
+    position:absolute;
+    display:flex;
+    justify-content:right;
+    font-size: 11px;
+    font-weight: normal;
+    color: #6E798C;
+    padding-right: 10px;
+}
+
+.bodyBox {
+    width:100%;
+    position:absolute;
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+}
+
+.avatarBox {
+    width:40%;
+    display:flex;
+    justify-content:center;
+}
+
+.messageBox {
+    width:70%
+}
+
+.titleBox {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+    font-weight: bold;
+    color: #014D5C;
+}
+
+.messageBox p {
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #7A7878;
+}
+
+.footerBox {
+    display:flex;
+    justify-content:space-between;
+    position:absolute;
+    margin-top:20px;
+    width:60%
+}
+
+.firmaBox {
+    font-size: 12px;
+    font-weight: bold;
+    color: #6E798C;
+}
+
+.buttonBox {
+    background: linear-gradient(152.78deg, #3D5A6C -1.5%, #72A98F 66.33%);
+    padding: 10px 20px;
+    border-radius: 70px;
+    margin-top: -10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+.noticias {
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+    color: #3D5A6C;
+}
+
+.noticiasBox {
+    width:100%;
+    display: flex;
+    margin-top: 20px;
+}
+
+.noticiasColumn {
+    width: 50%;
+    padding: 5px;
+    box-shadow: 0px 4px 45px rgba(0,0, 0, 0.07);
+}
+
+.headearNoticiasBoxOne{
+    border-radius:10px 10px 0 0;
+    background-image: url('../public/imageFirst.jpg');
+    min-height:140px;
+
+}
+
+.headearNoticiasBoxTwo{
+    border-radius:10px 10px 0 0;
+    background-image: url('../public/imageSecond.png');
+    min-height:140px
+}
+
+.bodyNoticiasBox {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: #354F5E;
+    padding: 20px;
+}
+
+.buttonNoticias {
+    background: linear-gradient(152.78deg, #3D5A6C -1.5%, #72A98F 66.33%);
+    color: #fff;
+    text-align: center;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 70px;
+    padding: 5px 0;
+}
+
+
+/* CALENDAR  */
+.calendarBox {
+    border-radius:19px;
+    width:400px;
+    margin:0 auto;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15)
+}
+
+.calendarTitle {
+    display:flex;
+    justify-content:flex-start;
+    border-bottom: 1px solid black;
+    width:250px;
+    margin: 0 auto;
+    padding: 10px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #3D5A6C;
+}
+
+
+.informes {
+    width:400px;
+    margin:5px auto;
+    font-size: 24px;
+    font-weight: bold;
+    color: #3D5A6C;
+}
+
+
+
+.boxInforme {
+    width:80%;
+    min-height:140px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 45px rgba(0,0, 0, 0.07);
+    margin: 10px auto 0 auto;
+}
+
+.dayInforme {
+    width:80%;
+    position:absolute;
+    display:flex;
+    justify-content:right;
+    font-size: 11px;
+    font-weight: normal;
+    color: #6E798C;
+    padding-right: 10px;
+}
+
+.bodyInforme {
+    width:80%;
+    position:absolute;
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+}
+
+.avatarInforme {
+    width:40%;
+    display:flex;
+    justify-content:center;
+}
+
+.messageInforme {
+    width:70%
+}
+
+.titleInforme {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+    font-weight: bold;
+    color: #014D5C;
+}
+
+.messageInforme p {
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #7A7878;
+}
+
+.footerInforme {
+    display:flex;
+    justify-content:space-between;
+    position:absolute;
+    margin-top:20px;
+    width:60%
+}
+
+.firmaInforme {
+    font-size: 12px;
+    font-weight: bold;
+    color: #6E798C;
+}
+
+.buttonInforme {
+    background: linear-gradient(152.78deg, #3D5A6C -1.5%, #72A98F 66.33%);
+    padding: 10px 20px;
+    border-radius: 70px;
+    margin-top: -10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+
+.prueba {
+    height: 360px;
+    width: 100%;
+    margin: -15px 0 0 0 ;
+    
+}
+/*  */
+
+@media only screen and (max-width: 991px) {
+    .footerBox {
+        display: block;
+    }
+
+    .containerCalendar {
+        margin-top: 700px;
+    }
+    .row{
+        display: block;
+    }
+    .buttonBox {
+        width: 100px;
+        float: right;
+        margin-top: -30px;
+    }
+    .boxInforme {
+        width: 100%;
+        margin: 0;
+    }
+
+    .dayInforme {
+        width: 100%;
+    }
+
+    .bodyInforme{
+        width: 100%;
+    }
+}
+
+/*  */
