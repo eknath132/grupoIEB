@@ -22,7 +22,7 @@ const Disponibles = ({data}) => {
             <section style={{marginTop: '10px'}}>
                 <div className="container">
                     <DisponiblesScreen 
-                        data={data}
+                        // data={data}
                     />
                 </div>
             </section>
@@ -32,11 +32,11 @@ const Disponibles = ({data}) => {
 
 export default Disponibles;
 
-export async function getServerSideProps() {
+// export async function getServerSideProps() {
     
-    const res = await fetch('https://ieb-peralesazarel-gmailcom.vercel.app/api/hello');
-    const data = await res.json();
-    return {
-        props: {data}
-    }
-}
+//     const res = await fetch('https://ieb-peralesazarel-gmailcom.vercel.app/api/hello');
+//     const data = await res.json();
+//     return {
+//         props: {data}
+//     }
+// }

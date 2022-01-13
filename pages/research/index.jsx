@@ -19,7 +19,7 @@ const Research = () => {
             </header>
 
             <section>
-                <div className="container">
+                <div>
                     <ResearchComponent />
                 </div>
             </section>
