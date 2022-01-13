@@ -33,7 +33,7 @@ const morningCalls = () => {
                             <div className={style.firmaBox}>
                                 Carlos Fernandez
                             </div>
-                            <div className={style.buttonBox}>
+                            <div className={style.buttonBox} style={{cursor:'pointer'}}>
                                 Inscribirse
                             </div>
 
@@ -62,7 +62,7 @@ const morningCalls = () => {
                             <div className={style.firmaBox}>
                                 Carlos Fernandez
                             </div>
-                            <div className={style.buttonBox}>
+                            <div className={style.buttonBox} style={{cursor:'pointer'}}>
                                 Inscribirse
                             </div>
 
@@ -121,7 +121,7 @@ const morningCalls = () => {
                     <div className={style.bodyNoticiasBox}>
                         Novedades sobre mercado de capitales
                     </div>
-                    <div className={style.buttonNoticias}>
+                    <div className={style.buttonNoticias} style={{cursor:'pointer'}}>
                         Inscribirse
                     </div>
                 </div>
@@ -131,7 +131,7 @@ const morningCalls = () => {
                     <div className={style.bodyNoticiasBox}>
                         Novedades sobre mercado de capitales
                     </div>
-                    <div className={style.buttonNoticias}>
+                    <div className={style.buttonNoticias} style={{cursor:'pointer'}}>
                         Inscribirse
                     </div>
                 </div>

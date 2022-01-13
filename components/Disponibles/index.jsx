@@ -78,7 +78,7 @@ const columns = [
 
 ]
 const index = ({data}) => {
-    const [dataTabla, setDataTabla] = useState(data.Disponibles)
+    // const [dataTabla, setDataTabla] = useState(data.Disponibles)
     const [valueProductor, setValueProductor] = useState('');
     const [valueComitente, setValueComitente] = useState('');
     const [valueMoneda, setValueMoneda] = useState('');
@@ -96,7 +96,7 @@ const index = ({data}) => {
             }
             return dat.moneda === e
         })
-        setDataTabla(body)
+        // setDataTabla(body)
     }
 
     const handdleClickModal = (comitente) => {
@@ -135,7 +135,7 @@ const index = ({data}) => {
                 />
                 <Table 
                     columns={columns}
-                    data={dataTabla}
+                    // data={dataTabla}
                     handdleClickModal={handdleClickModal}
                 />
                 {

@@ -108,7 +108,7 @@ const index = () => {
                                         <div className={style.firmaInforme}>
                                             Carlos Fernandez
                                         </div>
-                                        <div className={style.buttonInforme}>
+                                        <div className={style.buttonInforme} style={{cursor:'pointer'}}>
                                             Inscribirse
                                         </div>
 
@@ -139,7 +139,7 @@ const index = () => {
                                         <div className={style.firmaInforme}>
                                             Carlos Fernandez
                                         </div>
-                                        <div className={style.buttonInforme}>
+                                        <div className={style.buttonInforme} style={{cursor:'pointer'}}>
                                             Inscribirse
                                         </div>
 
