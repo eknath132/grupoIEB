@@ -30,7 +30,7 @@ const index = ({precio}) => {
     return (
         <>
             <div className={`${style.containerRow} row`} style={{paddingLeft: '30px', marginBottom: '20px'}}>
-                <div className='col-md-5' style={{minWidth:'42.8%', marginRight:'5%'}} >
+                <div className='col-md-5' style={{minWidth:'42.8%', marginRight:'4%'}} >
                     <div className={`${style.header} row`}>
                         <div className="col-sm-3 col-md-3 col-lg-4 p-2">
                             <div className={`${style.disponibleH5}`}>
