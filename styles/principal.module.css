@@ -7,7 +7,7 @@
     background: -webkit-linear-gradient(-45deg, rgba(61, 90, 108,1) 0%,rgba(113,206,239,1) 50%,rgba(33,180,226,1) 50%,rgba(183,222,237,1) 100%); /*Chrome10-25,Safari5.1-6 */ 
     background: linear-gradient(140deg, rgba(61, 90, 108,1) 0%,rgba(61, 90, 108,1) 50%,rgba(61, 90, 108,0.9) 51%,rgba(61, 90, 108,0.9) 100%);/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
     /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#b7deed',GradientType=1 ); /*IE6-9 fallback on horizontal gradient    min-height: 100px; */ 
-    padding: 10px 10px;
+    padding: 10px;
     position: relative;
     border-radius: 19px 19px 0 0;
 }
@@ -96,44 +96,6 @@
     margin-left: 10px;
 }
 
-/*  */
-
-.transitionTenencia-enter,
-.transitionTenencia-appear {
-  /*We give the list the initial dimension of the list button*/
-  top: 0;
-  width: 120px;
-  max-height: 40px;
-  color: transparent;
-  background-color: #5a564c;
-}
-/* This is where we can add the transition*/
-.transitionTenencia-enter-active,
-.transitionTenencia-appear-active {
-  top: 45px;
-  width: 200px;
-  max-height: 200px;
-  background-color: #9e8949;
-  transition: all 400ms;
-}
-
-/* This fires as soon as the this.state.showList is false */
-.transitionTenencia-exit {
-  top: 45px;
-  width: 200px;
-  max-height: 200px;
-  background-color: #9e8949;
-}
-/* fires as element leaves the DOM*/
-.list-transition-exit-active {
-  top: 0;
-  width: 120px;
-  max-height: 40px;
-  color: transparent;
-  background-color: #5a564c;
-  transition: all 400ms;
-}
-
 /* Tenencia */
 .tenenciaBox {
     width: 100%;
@@ -190,7 +152,7 @@
     width: 100%;
     min-height: 100px;
     border-radius: 19px;
-    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.07)
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.07);
 }
 
 .cuentasBox {
@@ -768,10 +730,60 @@
     }
 }
 
+@media (max-width: 534px) {
+    .caucionesBox{
+        min-width: 100%;
+        margin: 0 auto;
+    }
+    .apalancamientoBox {
+        min-width: 100%;
+        margin: 20px auto 0 auto
+    }
+    .complianceBox {
+        min-width: 100%;
+        margin: 20px auto 0 auto
+    }
+    .infoRow {
+        margin-top: 20px;
+    }
+    .containerRowBottom {
+        padding-right: 30px;
+    }
+    .objetivoBox {
+        margin: 0 auto;
+        width: 80%;
+    }
+    .caucionesClienteBox {
+        width: 80%;
+        margin: 0 auto
+    }
+
+}
 
 @media only screen and (min-width: 991px) and (max-width: 1046px) {
     .tenenciaP {
         margin-left: -10px;
+    }
+}
+
+@media (max-width: 991px) {
+    .cuentasBox {
+        max-width: 100%;
+        margin-bottom: 5px;
+        margin-left: 0;
+        border-radius: 19px 19px 0 0 ;
+    }
+    .cuentas {
+        padding: 0 12px 1rem 10px !important
+    }
+    .containerRow{ 
+        padding-right: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .objetivoProgress p {
+        margin-bottom: 7px ;
     }
 }
 

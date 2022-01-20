@@ -2,6 +2,7 @@ import {useState} from 'react'
 import Informacion from '../../components/Header/informacion'
 import Layout from '../../components/layout';
 import DisponiblesScreen from '../../components/Disponibles';
+import Styles from '../../styles/Home.module.css';
 
 const Disponibles = ({data}) => {
     
@@ -10,7 +11,7 @@ const Disponibles = ({data}) => {
             title= "Disponibles"
             description={"Pantalla Disponibles"}
         >
-            <header className='container'>
+            <header className={Styles.container}>
                 <Informacion
                     title={'General | Disponibles'}
                     name={'Disponibles'}
@@ -20,7 +21,7 @@ const Disponibles = ({data}) => {
             </header>
 
             <section style={{marginTop: '10px'}}>
-                <div className="container">
+                <div>
                     <DisponiblesScreen 
                         // data={data}
                     />

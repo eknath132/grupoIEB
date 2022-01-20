@@ -77,14 +77,14 @@ export default function layout({children, title, description}) {
                     </div>
                     <div className={styles.isMobileBody}>
                         <ul className={ `${styles.ul} col-12`}>
-                            <li className={styles.li}> 
+                            <li className={styles.li}>
                                 <Link href={"/productor/1"}>
                                     <a>
                                         <Icon style={{root: {textAlign:'center'}, fontSize:'45px', border:'2px solid #A7C9B9', borderRadius:'10px', padding:'10px', marginTop:'10px', marginLeft:'auto'}}>
                                             <img style={{height:'150%', marginTop:'-54px', marginLeft:'-2px'}} src="/campana.svg"/>
                                         </Icon>
                                     </a>
-                                </Link> 
+                                </Link>
                             </li>
                             <div style={{borderTop:'2px solid #FFF', marginTop:'5px'}}/>
                             <li className={styles.li}> 
@@ -148,7 +148,7 @@ export default function layout({children, title, description}) {
                                 </Link> 
                             </li>
                         </ul>
-                        <div style={{marginTop:'140px'}}>
+                        <div style={{marginTop: 'auto', width:'100%'}} className="d-flex justify-content-center">
                             <div className={styles.menuHelp} onClick={e => Router.push(item.url, item.url)}>
                                 <Icon style={{root: {textAlign:'center'}, fontSize:'45px', borderRadius:'13px', padding:'10px', marginLeft:'auto'}}>
                                     <img style={{height:'100%', marginTop:'-52px', marginLeft:'-3px'}} src="/help.svg"/>
