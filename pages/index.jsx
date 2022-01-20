@@ -12,7 +12,7 @@ const Index = ({data}) => {
             title= "Inicio"
             description={"Pantalla Principal"}
         >
-            <header className={`${Styles.container}`}>
+            <header className={Styles.container}>
                 <Informacion
                     title={'Inicio | Panel principal'}
                     name={'Productor 1'}

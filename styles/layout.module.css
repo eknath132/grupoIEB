@@ -1,8 +1,8 @@
 .container {
     max-width: 100%;
     min-height: 100vh;
-    padding: 0 2rem;
-    margin: 1rem 3rem 1rem 1rem;
+    /* padding: 0 2rem 1rem 2rem; */
+    margin: 1rem 3rem;
     display: block;
 }
 
@@ -15,7 +15,7 @@
     border-radius: 30px;
     padding: 20px 10px;
     min-width: 40px;
-    min-height: 65vh;
+    /* min-height: 100%; */
     margin-top: 15px;
     word-wrap: break-word;
 }
@@ -59,7 +59,7 @@
 .ul {
     padding: 0;
     margin-top: 0;
-  }
+}
   
 .li {
     color: #fff;
@@ -72,6 +72,13 @@
     color: #fff;
     text-decoration: none;
     font-size: 14px;
+}
+
+.isMobileBody {
+    height: 650px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .nameNav {
@@ -126,6 +133,7 @@
     }
     .container {
         padding: 0 !important;
+        margin: 0;
     }
     .menuHelp {
         position: absolute;
@@ -137,7 +145,7 @@
         display: block;
         position: absolute;
         text-align: right;
-        width: 85%;
+        width: 100%;
         font-size: 20px;
     }
   }

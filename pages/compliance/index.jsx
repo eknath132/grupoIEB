@@ -1,6 +1,7 @@
 import Informacion from '../../components/Header/informacion'
 import Layout from '../../components/layout';
 import ComplianceScreen from '../../components/Compliance';
+import Styles from '../../styles/Home.module.css';
 
 const Compliance = () => {
     return (
@@ -8,7 +9,7 @@ const Compliance = () => {
             title= "Compliance"
             description={"Pantalla Principal"}
         >
-            <header className='container'>
+            <header className={Styles.container} >
                 <Informacion
                     title={'Compliance | Cuentas'}
                     name={'Estado de cuenta'}
@@ -18,7 +19,7 @@ const Compliance = () => {
             </header>
 
             <section style={{marginTop: '10px'}}>
-                <div className="container">
+                <div>
                     <ComplianceScreen/>
                 </div>
             </section>

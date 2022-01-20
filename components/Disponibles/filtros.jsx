@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Stack from '@mui/material/Stack';
 import { createFilterOptions } from '@mui/material/Autocomplete';
+import SelectInput from '../../util/selectInput'
 
 
 
@@ -29,82 +30,79 @@ const filtros = ({
 
     return (
         <div className='col-md-12' style={{height:'76px', display:'flex', marginTop:'20px', justifyContent:'space-around', flexWrap:'wrap', background: 'rgba(220, 234, 227, 0.35)'}}>
-             <Stack component="form" noValidate sx={{m:1, height:20}}>
-                <TextField
-                    id="date"
-                    label="Fecha"
-                    type="date"
-                    defaultValue="2021-01-06"
-                    sx={{minWidth:'200px',height:55, background: '#E4EBF0' }}
-                />
-             </Stack>
-            <FormControl sx={{ marginTop: 3, minWidth: 120,}}>
-                <InputLabel id="demo-simple-select-autowidth-label" style={{marginTop:'-5px'}}>Productor</InputLabel>
-                <Select
-                    labelId="demo-simple-select-autowidth-label"
-                    id="demo-simple-select-autowidth"
-                    value={valueProductor ? valueProductor : ''}
-                    onChange={(e) => setValueProductor(e.target.value)}
-                    autoWidth
-                    label="Productor"
-                    sx={{height:40, background: '#E4EBF0'}}
-                >
-                <MenuItem value=''>
-                    <em>Ninguno</em>
-                </MenuItem>
-                <MenuItem value='Productor1'>Productor 1</MenuItem>
-                <MenuItem value='Productor2'>Productor 2</MenuItem>
-                <MenuItem value='Productor3'>Productor 3</MenuItem>
-                </Select>
-            </FormControl>
-            <FormControl sx={{ marginTop: 3, minWidth: 120 }}>
-                <InputLabel id="demo-simple-select-autowidth-label">Comitente</InputLabel>
-                <Select
-                    labelId="demo-simple-select-autowidth-label"
-                    id="demo-simple-select-autowidth"
-                    value={valueComitente ? valueComitente : ''}
-                    onChange={(e) => setValueComitente(e.target.value)}
-                    autoWidth
-                    label="Comitente"
-                    sx={{height:40, background: '#E4EBF0'}}
-                >
-                <MenuItem value=''>
-                    <em>Ninguno</em>
-                </MenuItem>
-                <MenuItem value='Comitente1'>Comitente 1</MenuItem>
-                <MenuItem value='Comitente2'>Comitente 2</MenuItem>
-                <MenuItem value='Comitente3'>Comitente 3</MenuItem>
-                </Select>
-            </FormControl>
-            {/* <Autocomplete
-                onInputChange={e => handdleAutoComplete(e.target.value)}
-                filterOptions={filterOptions}
-                disablePortal
-                id="combo-box-demo"
-                options={comitente}
-                sx={{ width: 0 }}
-                renderInput={(params) => <TextField {...params} label="Comitente" />}
-            /> */}
-            <FormControl sx={{ marginTop: 3, minWidth: 120}}>
-                <InputLabel id="demo-simple-select-autowidth-label">Moneda</InputLabel>
-                <Select
-                    labelId="demo-simple-select-autowidth-label"
-                    id="demo-simple-select-autowidth"
-                    value={valueMoneda ? valueMoneda : ''}
-                    onChange={(e) => handdleMoneda(e.target.value)}
-                    autoWidth
-                    label="Moneda"
-                    sx={{height:40, background: '#E4EBF0'}}
+            <div className="col-md-2 ">
+                <Stack component="form" noValidate sx={{m:1}}>
+                    <TextField
+                        id="date"
+                        label="Fecha"
+                        type="date"
+                        defaultValue="2021-01-06"
+                        sx={{height:55, background: '#E4EBF0'}}
+                    />
+                </Stack>
+            </div>
+             <div className="col-md-8 d-flex justify-content-between align-items-center">
+                <SelectInput
+                    minWidth= {120} 
+                    marginTop= {'-5px'}
+                    label= "Productor"
+                    options= {[ 
+                        {
+                            value: 'Productor1',
+                            label:'Productor1'
+                        },
+                        {
+                            value: 'Productor2',
+                            label:'Productor2'
+                        },
+                        {
+                            value: 'Productor3',
+                            label:'Productor3'
+                        },
 
-                >
-                <MenuItem value=''>
-                    <em>Ninguno</em>
-                </MenuItem>
-                <MenuItem value='PESOS'>PESOS</MenuItem>
-                <MenuItem value='USD'>USD</MenuItem>
-                <MenuItem value='DOLAR EXT.'>DOLAR EXT.</MenuItem>
-                </Select>
-            </FormControl>
+                    ]}
+                />
+                <SelectInput
+                    minWidth= {120} 
+                    marginTop= {'-5px'}
+                    label= "Comitente"
+                    options= {[ 
+                        {
+                            value: 'Comitente1',
+                            label:'Comitente1'
+                        },
+                        {
+                            value: 'Comitente2',
+                            label:'Comitente2'
+                        },
+                        {
+                            value: 'Comitente3',
+                            label:'Comitente3'
+                        },
+
+                    ]}
+                />
+                <FormControl sx={{minWidth: 120}}>
+                    <InputLabel id="demo-simple-select-autowidth-label" style={{marginTop: '-5px'}}>Moneda</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-autowidth-label"
+                        id="demo-simple-select-autowidth"
+                        value={valueMoneda ? valueMoneda : ''}
+                        onChange={(e) => handdleMoneda(e.target.value)}
+                        autoWidth
+                        label="Moneda"
+                        sx={{height:45, background: '#E4EBF0'}}
+
+                    >
+                    <MenuItem value=''>
+                        <em>Ninguno</em>
+                    </MenuItem>
+                    <MenuItem value='PESOS'>PESOS</MenuItem>
+                    <MenuItem value='USD'>USD</MenuItem>
+                    <MenuItem value='DOLAR EXT.'>DOLAR EXT.</MenuItem>
+                    </Select>
+                </FormControl>
+             </div>
 
         </div>
     )

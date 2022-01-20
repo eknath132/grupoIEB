@@ -109,8 +109,8 @@ const index = ({data}) => {
     }
 
     return (
-        <div className="row mt-4">
-                <div className="col-md-4 d-flex justify-content-start align-items-center">
+        <div className="row mt-4" style={{paddingLeft:'30px'}}>
+                <div className="col-md-4 d-flex justify-content-start align-items-center" style={{paddingLeft:0}}>
                     <Search>
                         <SearchIconWrapper>
                             <Icon style={{root: {textAlign:'center'}, fontSize:'40px', padding:'10px', marginTop:'10px', marginLeft:'auto'}}>

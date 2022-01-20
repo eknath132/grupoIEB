@@ -29,18 +29,18 @@ const index = ({precio}) => {
     
     return (
         <>
-            <div className="row" style={{paddingLeft: '30px', marginBottom: '20px'}}>
-                <div className='col-md-5' style={{marginRight:'55px'}} >
+            <div className={`${style.containerRow} row`} style={{paddingLeft: '30px', marginBottom: '20px'}}>
+                <div className='col-md-5' style={{minWidth:'42.8%', marginRight:'5%'}} >
                     <div className={`${style.header} row`}>
-                        <div className="col-md-12 col-lg-4 p-2">
-                            <div className={`${style.disponibleH5} col-xs-12`}>
+                        <div className="col-sm-3 col-md-3 col-lg-4 p-2">
+                            <div className={`${style.disponibleH5}`}>
                                 Listado
                             </div>
-                            <div className={`${style.disponibleH4} col-xs-12`}>
+                            <div className={`${style.disponibleH4}`}>
                                 Disponibles
                             </div>
                         </div>
-                        <div className={`${style.contenedorSigno} col-md-12 col-lg-6 col-xl-6 p-2`}>
+                        <div className={`${style.contenedorSigno} col-sm-6 col-md-6 col-lg-6 col-xl-6 p-2`}>
                             <div className={`${style.signoFlex} col`}>
                                 <Icon style={{root: {textAlign:'center'}, fontSize:'40px', background:'#fff', borderRadius:'70px', padding:'10px', marginTop:'5px', marginLeft:'auto'}}>
                                     <img style={{height:'300%', marginTop:'-3px', marginLeft:'2px'}} src="/dolar.svg"/>
@@ -82,12 +82,10 @@ const index = ({precio}) => {
                     </CSSTransition>
                 </div>
                 <div className='col'>
-                    <div className='col-sm-12'>
-                        <Cuentas value="46" mesActual="25" mesAnterior="100" /> 
-                    </div>
+                    <Cuentas value="46" mesActual="25" mesAnterior="100" /> 
                 </div>
             </div>
-            <div className="row" style={{paddingLeft: '30px'}}>
+            <div className={`${style.containerRowBottom} row`} style={{paddingLeft: '30px'}}>
                 <Cauciones/>
                 <Apalancamiento/>
                 <Compliance/>

@@ -12,7 +12,7 @@ import Modal from '../../util/modal'
 
 const index = () => {
     return (
-        <div className="row mt-4">
+        <div className="row mt-4" style={{paddingLeft:'30px'}}>
                 <div className="col-md-3 d-flex justify-content-start align-items-center">
                     <Search>
                         <SearchIconWrapper>
