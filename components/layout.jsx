@@ -33,7 +33,7 @@ export default function layout({children, title, description}) {
     }
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container}`}>
             <Head>
                 <title> {title} </title>
                 <meta name="description" content={description}/>
@@ -80,7 +80,7 @@ export default function layout({children, title, description}) {
                             <li className={styles.li}>
                                 <Link href={"/productor/1"}>
                                     <a>
-                                        <Icon style={{root: {textAlign:'center'}, fontSize:'45px', border:'2px solid #A7C9B9', borderRadius:'10px', padding:'10px', marginTop:'10px', marginLeft:'auto'}}>
+                                        <Icon style={{root: {textAlign:'center'}, fontSize:'45px', border:'2px solid var(--theme-letterSmall)', borderRadius:'10px', padding:'10px', marginTop:'10px', marginLeft:'auto'}}>
                                             <img style={{height:'150%', marginTop:'-54px', marginLeft:'-2px'}} src="/campana.svg"/>
                                         </Icon>
                                     </a>
@@ -142,7 +142,7 @@ export default function layout({children, title, description}) {
                                             <img style={{height:'100%', marginTop:'-52px', marginLeft:'-3px'}} src="/reportes.svg"/>
                                         </Icon>
                                         <p className={styles.nameNav}>
-                                            Procesos
+                                            Reportes
                                         </p>
                                     </a>
                                 </Link> 
