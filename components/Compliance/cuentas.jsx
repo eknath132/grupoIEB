@@ -1,8 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import { useState } from 'react';
 import style from '../../styles/compliance.module.css';
 import BoxRight from './boxRight';
 import Table from './tableCompliance';
 import Image from 'next/image';
+import Icon from '@mui/material/Icon';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import SelectInput from '../../util/selectInput';
 
 const Cuentas = () => {
 
@@ -46,40 +51,43 @@ const Cuentas = () => {
                         Cuentas
                     </p>
                     <div style={{display:'flex'}}>
-                        <div className={style.cuentasOrdenar}>
-                            Ordenar
-                            <image>
-                                <Image
-                                    src={'/arrowSmallDown.png'}
-                                    alt='restaurar'
-                                    width={8}
-                                    height={8}
-                                />
-                            </image>
+                        {/* <div className={style.cuentasOrdenar}> */}
+                            <SelectInput
+                                minWidth= {100}
+                                marginRight = {'0'}
+                                marginTop= {'-5px'}
+                                label = 'Ordenar'
+                                options= {[ 
+                                    {
+                                        value: 'Ordenar1',
+                                        label:'Ordenar1'
+                                    },
+                                    {
+                                        value: 'Ordenar2',
+                                        label:'Ordenar2'
+                                    },
+                                    {
+                                        value: 'Ordenar3',
+                                        label:'Ordenar3'
+                                    },
+
+                                ]}
+                            />
+                        {/* </div> */}
+                        <div className={style.cuentasButtons}>
+                            <Icon style={{root: {textAlign:'center'}, fontSize:'30px', padding:'10px', marginTop:'-5px', marginLeft:'auto', cursor:'pointer'}}>
+                                <img style={{height:'250%', marginTop:'-43px', marginLeft: '-8px'}} src="/refresh.svg"/>
+                            </Icon>
                         </div>
                         <div className={style.cuentasButtons}>
-                            <Image
-                                src={'/refresh.png'}
-                                alt='restaurar'
-                                width={20}
-                                height={20}
-                            />
+                            <Icon style={{root: {textAlign:'center'}, fontSize:'30px', padding:'10px', marginTop:'-5px', marginLeft:'auto', cursor:'pointer'}}>
+                                <img style={{height:'250%', marginTop:'-43px', marginLeft: '-8px'}} src="/arrowDown.svg"/>
+                            </Icon>
                         </div>
                         <div className={style.cuentasButtons}>
-                            <Image
-                                src={'/arrowDown.png'}
-                                alt='flecha'
-                                width={20}
-                                height={20}
-                            />
-                        </div>
-                        <div className={style.cuentasButtons}>
-                            <Image
-                                src={'/moreH.png'}
-                                alt='flecha'
-                                width={20}
-                                height={20}
-                            />
+                            <Icon style={{root: {textAlign:'center'}, fontSize:'30px', padding:'10px', marginTop:'-5px', marginLeft:'auto', cursor:'pointer'}}>
+                                <img style={{height:'250%', marginTop:'-43px', marginLeft: '-8px'}} src="/moreH.svg"/>
+                            </Icon>
                         </div>
                     </div>
                 </div>

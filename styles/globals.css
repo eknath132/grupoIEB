@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 
+.light-body {
+  --theme-background: #fcfcfc;
+  --theme-principal-header: linear-gradient(140deg, rgba(61, 90, 108,1) 0%,rgba(61, 90, 108,1) 50%,rgba(61, 90, 108,0.9) 51%,rgba(61, 90, 108,0.9) 100%);
+  --theme-letterSmall: #A7C9B9;
+  --theme-principal-cuentas: linear-gradient(140deg, rgba(54, 88, 72 ,1) 0%,rgba(54, 88, 72 ,1) 42%,rgba(54, 88, 72 ,0.9) 42%,rgba(54, 88, 72 ,0.9) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.dark-body {
+  --theme-background: #1E2320;
+  --theme-principal-header: linear-gradient(140deg, rgba(61, 90, 108,1) 0%,rgba(61, 90, 108,1) 50%,rgba(61, 90, 108,0.9) 51%,rgba(61, 90, 108,0.9) 100%);
+  --theme-letterSmall: red;
+
+}
 html,
 
 
@@ -7,13 +20,17 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
+  cursor: default;
 }
+
 
 html {
   height: 100%;
 }
 body {
   min-height: 100%;
+  background-color: var(--theme-background) !important;
+
 }
 a {
   color: inherit;

@@ -13,26 +13,46 @@ import TablePagination from '@mui/material/TablePagination';
 import { makeStyles } from '@mui/styles';
 import Icon from '@mui/material/Icon';
 
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-      "&::-webkit-scrollbar": {
-        width: 5,
-        color: '#D2CBCF',
-        borderRadius: '10px',
-        height:'5px'
-      },
-      "&::-webkit-scrollbar-track": {
-        boxShadow: `inset 0 0 6px rgba(0, 0, 0, 0.3)`,
-      },
-      "&::-webkit-scrollbar-thumb": {
-        backgroundColor: "darkgrey",
-        outline: `1px solid slategrey`,
-      },
-    },
-  }));
+const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
+        "&::-webkit-scrollbar": {
+          maxWidth: '5px ',
+          color: '#D2CBCF',
+          borderRadius: '10px',
+          height:'3px'
+        },
+        "&::-webkit-scrollbar-track": {
+          boxShadow: `inset 0 0 6px rgba(0, 0, 0, 0.3)`,
+        },
+        "&::-webkit-scrollbar-thumb": {
+          backgroundColor: "darkgrey",
+          outline: `1px solid slategrey`,
+        },
+}));
 
 const tableDisponibles = ({columns, data, handdleClickModal}) => {
+    const useStyles = makeStyles((theme) => ({
+        root: {
+          "&::-webkit-scrollbar": {
+            maxWidth: '3px ',
+            color: '#D2CBCF',
+            borderRadius: '10px',
+            height:'3px'
+          },
+          "&::-webkit-scrollbar-track": {
+            boxShadow: `inset 0 0 6px rgba(0, 0, 0, 0.3)`,
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "darkgrey",
+            outline: `1px solid slategrey`,
+          },
+        },
+        hover: {
+            '&:hover': {
+                backgroundColor:'#E4EBF0' ,
+                cursor: 'pointer'
+            }
+        }
+      }));
     const classes = useStyles();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -52,11 +72,11 @@ const tableDisponibles = ({columns, data, handdleClickModal}) => {
         '&:last-child td, &:last-child th': {
           border: 0,
         },
-      }));
+    }));
       
     return (
         <>
-            <TableContainer sx={{ maxHeight: 650, paddingLeft:'0 !important'}} className={classes.root}>
+            <StyledTableContainer sx={{ maxHeight: 650, paddingLeft:'0 !important'}}>
                 <Table stickyHeader aria-label="sticky table" style={{}}>
                     <TableHead>
                         <TableRow>
@@ -68,6 +88,7 @@ const tableDisponibles = ({columns, data, handdleClickModal}) => {
                                 color: '#484964',
                                 fontSize:'12px', 
                                 fontWeight:'bold',
+                                fontFamily: 'DM Sans, sans-serif',
                                 backgroundColor: '#F9F9FC',
                                 minWidth: column.minWidth
                                 }}
@@ -78,7 +99,7 @@ const tableDisponibles = ({columns, data, handdleClickModal}) => {
                         ))}
                         </TableRow>
                     </TableHead>
-                    {/* <TableBody>
+                    <TableBody>
                         {data
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         .map((row) => {
@@ -88,7 +109,7 @@ const tableDisponibles = ({columns, data, handdleClickModal}) => {
                                 const value = row[column.id];
                                 if(column.id === 'comitente') {
                                     return(
-                                        <TableCell key={column.id} align={column.align} style={{fontSize: '11px', fontWeight: 'normal', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
+                                        <TableCell key={column.id} align={column.align} className={classes.hover} style={{fontSize: '11px', fontWeight: 'normal', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
                                             <div  style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
                                                 <Icon style={{root: {textAlign:'center'}, fontSize:'25px',padding:'10px', cursor:'pointer'}} onClick={() => handdleClickModal(row.nombre)}>
                                                     <img style={{height:'600%', marginTop:'-35px', marginLeft:'-14px'}} src="/launch.svg"/>
@@ -100,27 +121,27 @@ const tableDisponibles = ({columns, data, handdleClickModal}) => {
                                 }
                                 if(column.id === 'nombre') {
                                     return(
-                                        <TableCell key={column.id} align={column.align} style={{fontSize: '11px', fontWeight: 'normal', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
+                                        <TableCell key={column.id} align={column.align} className={classes.hover} style={{fontSize: '11px', fontWeight: 'normal', fontFamily: 'DM Sans, sans-serif', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
                                             {value}
                                         </TableCell>
                                     )
                                 }
                                 if(column.id === 'vencido' && row.vencido < 0) {
                                     return(
-                                        <TableCell key={column.id} align={column.align} style={{color:'#FF0000', fontSize: '11px', fontWeight: 'bold', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
+                                        <TableCell key={column.id} align={column.align} className={classes.hover} style={{background:'#FF0000', fontSize: '11px', fontWeight: 'bold', fontFamily: 'DM Sans, sans-serif', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
                                             {value}
                                         </TableCell>
                                     )
                                 }
                                 if(column.id === 'vencido' && row.vencido > 0) {
                                     return(
-                                        <TableCell key={column.id} align={column.align} style={{color:'#5FE96D', fontSize: '11px', fontWeight: 'bold', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
+                                        <TableCell key={column.id} align={column.align} className={classes.hover} style={{background:'#5FE96D', fontSize: '11px', fontWeight: 'bold', fontFamily: 'DM Sans, sans-serif', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
                                             {value}
                                         </TableCell>
                                     )
                                 }
                                 return (
-                                    <TableCell key={column.id} align={column.align} style={{color: column.color, fontSize: '11px', fontWeight:'normal', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
+                                    <TableCell key={column.id} align={column.align} className={classes.hover} style={{color: column.color, fontSize: '11px', fontWeight:'normal', fontFamily: 'DM Sans, sans-serif', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
                                         {value}
                                     </TableCell>
                                 );
@@ -128,9 +149,9 @@ const tableDisponibles = ({columns, data, handdleClickModal}) => {
                             </StyledTableRow>
                             );
                         })}
-                    </TableBody> */}
+                    </TableBody>
                 </Table>
-            </TableContainer>
+            </StyledTableContainer>
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"

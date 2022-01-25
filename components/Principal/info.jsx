@@ -37,8 +37,8 @@ const info = () => {
             </div>
 
             <div className={`${style.infoCarrousel}`}>
-                    <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                        <ArrowBackIosNewIcon sx={{marginTop:'50px', color:'#A7C9B9'}}/>
+                    <div style={{display:'flex', justifyContent:'center', alignItems:'center', background:'#fff',height:'250px', marginTop:'-40px', borderRadius:'20px'}}>
+                        <ArrowBackIosNewIcon sx={{marginTop:'40px', color:'var(--theme-letterSmall)', cursor:'pointer'}}/>
                         <div className={`${style.infoLeft} col-md-6`}>
                                 Tarjeta con info
                                 <p>
@@ -51,11 +51,11 @@ const info = () => {
                                     src={'/info.png'}
                                     alt='información'
                                     width={100}
-                                    height={100}
+                                    height={150}
                                     className={style.infoImage}
                                 />
                         </div>
-                        <ArrowForwardIosIcon sx={{marginTop:'50px', color:'#A7C9B9'}}/>
+                        <ArrowForwardIosIcon sx={{marginTop:'40px', color:'var(--theme-letterSmall)', cursor:'pointer'}}/>
                     </div>
                     <div className={style.infoSee}>
                         Ver todos

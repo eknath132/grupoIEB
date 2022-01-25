@@ -1,14 +1,39 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import {useState} from 'react'
+import {styled } from '@mui/material/styles';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 
-const selectInput = ({label, minWidth, marginRight, marginTop, options, moneda = false}) => {
-    const [value, setValue] = useState()
+const CssSelect = styled(FormControl)({
+    '& label': {
+        fontFamily: 'DM Sans, sans-serif',
+    },
+    '& label.Mui-focused': {
+      color: 'rgba(0,0,0,0.5)',
+      marginTop: '-2px !important'
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: 'rgba(0,0,0,0.5)',
+    },
+    '& .MuiOutlinedInput-root': {
+        fontFamily: 'DM Sans, sans-serif',
+        '& fieldset': {
+            borderColor: 'rgba(0,0,0,0.01)',
+        },
+        '&:hover fieldset': {
+            borderColor: 'rgba(0,0,0,0.01)',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: 'rgba(0,0,0,0.03)',
+        },
+    },
+});
+
+const selectInput = ({label, minWidth, marginTop, options, change, value}) => {
     return (
-        <FormControl sx={{minWidth: minWidth}} style={{marginRight: marginRight}}>
+        <CssSelect sx={{minWidth: minWidth, borderRadius:'8px'}}>
             <InputLabel id="demo-simple-select-autowidth-label" style={{marginTop: marginTop}}>{label}</InputLabel>
             <Select
                 labelId="demo-simple-select-autowidth-label"
@@ -16,7 +41,7 @@ const selectInput = ({label, minWidth, marginRight, marginTop, options, moneda =
                 value={value}
                 autoWidth
                 label={label}
-                onChange={(e) => setValue(e.target.value)}
+                onChange={(e) => change(e.target.value)}
                 sx={{height:45, background: '#E4EBF0', verticalAlign:'middle'}}
             >
                 <MenuItem value=''>
@@ -24,7 +49,7 @@ const selectInput = ({label, minWidth, marginRight, marginTop, options, moneda =
                 </MenuItem>
                 {options.map(opt => <MenuItem key={opt.value} value={opt.value}>{opt.label}</MenuItem> )}
             </Select>
-        </FormControl>
+        </CssSelect>
     )
 }
 

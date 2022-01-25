@@ -46,7 +46,7 @@ const cuentas = ({value, mesActual, mesAnterior}) => {
     }
 
     return (
-            <div className='row'>
+            <div className={`${style.rowCuentas} row`}> 
                 <div className={`${style.cuentas} col-md-12 col-lg-6 p-3`}>
                     <div className='row'>
                         <div className={`${style.cuentasBox} col-md-12 col-lg-6`}>

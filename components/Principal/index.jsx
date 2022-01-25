@@ -19,18 +19,26 @@ import { CSSTransition } from "react-transition-group";
 import { urlObjectKeys } from 'next/dist/shared/lib/utils';
 
 const index = ({precio}) => {
-
+    const [dark, setDark] = useState('light-body')
     const [showList, setShowList] = useState(true)
 
 
     const sswitch = () => {
         setShowList(showList ? false : true);
-      };
+    };
+
+    const handdleCambiar = () => {
+        console.log('cambiando')
+        document.querySelector('body').classList.remove( dark === 'light-body' ? 'light-body' : 'dark-body')
+        document.querySelector('body').classList.toggle( dark === 'light-body' ? 'dark-body' : 'light-body')
+        setDark(dark === 'light-body' ? 'dark-body' : 'light-body')
+    }
     
     return (
-        <>
+        <>  
+            {/* <button className="btn btn-primary" onClick={() => handdleCambiar()}> Cambiar </button> */}
             <div className={`${style.containerRow} row`} style={{paddingLeft: '30px', marginBottom: '20px'}}>
-                <div className='col-md-5' style={{minWidth:'42.8%', marginRight:'4%'}} >
+                <div className='col-md-5' style={{minWidth:'42.8%', background:'#fff', borderRadius:'20px 20px 0 0'}} >
                     <div className={`${style.header} row`}>
                         <div className="col-sm-3 col-md-3 col-lg-4 p-2">
                             <div className={`${style.disponibleH5}`}>

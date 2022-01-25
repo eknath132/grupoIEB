@@ -8,10 +8,9 @@ import {
     StyledInputBase
 } from '../../util/search';
 import Table from './tableDisponibles';
-import SearchIcon from '@mui/icons-material/Search';
 import Icon from '@mui/material/Icon';
 import Filtros from './filtros';
-import { filter, groupBy, set, toNumber } from 'lodash';
+import { filter} from 'lodash';
 import Modal from '../../util/modal'
 
 const columns = [
@@ -78,7 +77,7 @@ const columns = [
 
 ]
 const index = ({data}) => {
-    // const [dataTabla, setDataTabla] = useState(data.Disponibles)
+    const [dataTabla, setDataTabla] = useState(data?.Disponibles)
     const [valueProductor, setValueProductor] = useState('');
     const [valueComitente, setValueComitente] = useState('');
     const [valueMoneda, setValueMoneda] = useState('');
@@ -89,6 +88,7 @@ const index = ({data}) => {
     })
     
     const handdleMoneda = (e) => {
+        console.log('e', e)
         setValueMoneda(e)
         const body = filter(data.Disponibles, dat =>{
             if(valueComitente){
@@ -96,7 +96,15 @@ const index = ({data}) => {
             }
             return dat.moneda === e
         })
-        // setDataTabla(body)
+        setDataTabla(body)
+    }
+
+    const handdleProductor = (productor) => {
+        console.log('productor', productor)
+        setValueProductor(productor)
+    }
+    const handdleComitente = (comitente) => {
+        setValueComitente(comitente)
     }
 
     const handdleClickModal = (comitente) => {
@@ -132,10 +140,12 @@ const index = ({data}) => {
                     setValueProductor={setValueProductor}
                     setValueComitente={setValueComitente}
                     handdleMoneda={handdleMoneda}
+                    handdleProductor={handdleProductor}
+                    handdleComitente={handdleComitente}
                 />
                 <Table 
                     columns={columns}
-                    // data={dataTabla}
+                    data={dataTabla}
                     handdleClickModal={handdleClickModal}
                 />
                 {

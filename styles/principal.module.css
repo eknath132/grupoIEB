@@ -5,7 +5,7 @@
     background: rgb(183,222,237); /* Old browsers */
     background: -moz-linear-gradient(-45deg, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 50%, rgba(33,180,226,1) 50%, rgba(183,222,237,1) 100%); /* FF3.6-15*/ 
     background: -webkit-linear-gradient(-45deg, rgba(61, 90, 108,1) 0%,rgba(113,206,239,1) 50%,rgba(33,180,226,1) 50%,rgba(183,222,237,1) 100%); /*Chrome10-25,Safari5.1-6 */ 
-    background: linear-gradient(140deg, rgba(61, 90, 108,1) 0%,rgba(61, 90, 108,1) 50%,rgba(61, 90, 108,0.9) 51%,rgba(61, 90, 108,0.9) 100%);/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
+    background: var(--theme-principal-header);/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
     /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#b7deed',GradientType=1 ); /*IE6-9 fallback on horizontal gradient    min-height: 100px; */ 
     padding: 10px;
     position: relative;
@@ -33,7 +33,7 @@
 }
 .disponibleH5 {
     margin: 0;
-    color: #A7C9B9;
+    color: var(--theme-letterSmall);
     font-size: 16px;
     font-weight: 500;
 }
@@ -148,11 +148,16 @@
 
 /* Cuentas */
 
+.rowCuentas {
+    padding-left: 7%;
+}
+
 .cuentas {
     width: 100%;
     min-height: 100px;
     border-radius: 19px;
     box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.07);
+    background-color: #fff;
 }
 
 .cuentasBox {
@@ -163,7 +168,7 @@
     background: rgb(54, 88, 72 ); /* Old browsers */
     background: -moz-linear-gradient(-45deg, rgba(54, 88, 72 ,1) 0%, rgba(54, 88, 72 ,1) 50%, rgba(54, 88, 72 ,1) 51%, rgba(54, 88, 72 ,1) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(-45deg, rgba(54, 88, 72 ,1) 0%,rgba(54, 88, 72 ,1) 50%,rgba(54, 88, 72 ,1) 51%,rgba(54, 88, 72 ,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(140deg, rgba(54, 88, 72 ,1) 0%,rgba(54, 88, 72 ,1) 42%,rgba(54, 88, 72 ,0.9) 42%,rgba(54, 88, 72 ,0.9) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: var(--theme-principal-cuentas); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     box-shadow: 0px 4px 45px rgba(0, 0, 0, 0.07);
     display: flex;
     justify-content: space-between;
@@ -173,7 +178,7 @@
 .cuentasBoxLeft h3 {
     margin-top: 24px;
     margin-bottom: 10px;
-    color: #A7C9B9;
+    color: var(--theme-letterSmall);
     font-size: 16px;
     max-height: 10px;
     letter-spacing: -0.02em;
@@ -202,7 +207,7 @@
 }
 
 .comisionesBoxLeft h4{
-    color: #A7C9B9;
+    color: var(--theme-letterSmall);
     font-size: 16px;
     max-height: 10px;
     line-height: 10px;
@@ -222,7 +227,7 @@
 }
 
 .cuentasBoxRight h4 {
-    color: #A7C9B9;
+    color: var(--theme-letterSmall);
     font-size: 16px;
     max-height: 10px;
     line-height: 10px;
@@ -310,6 +315,7 @@
     margin-right: 20px;
     padding: 0;
     width: 220px;
+    background-color: #fff;
 }
 
 .caucionesTitle {
@@ -329,12 +335,11 @@
     text-align: center;
     width: 80%;
     height: 90px;
-    line-height: 40px;
     border-radius: 20px;
     margin-left: auto;
     margin-right: auto;
     margin-top: -50px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .caucionesSubtitle p:first-child {
@@ -342,19 +347,20 @@
     font-weight: bold;
     color: #fff;
     margin-bottom: 0;
-    line-height: 50px;
 }
 
 .caucionesSubtitle p:nth-child(2) {
     font-size: 12px;
     font-weight: 500;
     color: #fff;
-    height: 20px;
-    line-height: 20px;
+    min-height: 20px;
     border: 1px solid #fff;
     border-radius: 30px;
     width: 80%;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .caucionesClienteBox {
@@ -408,6 +414,7 @@
     margin-right: 20px;
     padding: 0;
     width: 220px;
+    background-color: #fff;
 }
 
 .apalancamientoSubtitle {
@@ -416,12 +423,11 @@
     text-align: center;
     width: 80%;
     height: 90px;
-    line-height: 40px;
-    border-radius: 19px;
+    border-radius: 20px;
     margin-left: auto;
     margin-right: auto;
     margin-top: -50px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .apalancamientoSubtitle p:first-child {
@@ -429,7 +435,6 @@
     font-weight: bold;
     color: #fff;
     margin-bottom: 0;
-    line-height: 50px;
 }
 
 .apalancamientoSubtitle p:nth-child(2) {
@@ -437,11 +442,14 @@
     font-weight: 500;
     color: #fff;
     height: 20px;
-    line-height: 20px;
     border: 1px solid #fff;
     border-radius: 30px;
     width: 80%;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
 }
 
 /*  */
@@ -453,6 +461,7 @@
     border-radius: 19px;
     margin-right: 20px;
     padding: 0;
+    background-color: #fff;
 }
 
 .complianceTitle {
@@ -478,7 +487,7 @@
     line-height: 10px;
     font-weight: 500;
     font-size: 16px;
-    color: #A7C9B9;
+    color: var(--theme-letterSmall);
     letter-spacing: -0.02em;
 }
 
@@ -517,7 +526,7 @@
 .complianceFecha p{
     font-size: 14px;
     font-weight: 500;
-    color: #A7C9B9;
+    color: var(--theme-letterSmall);
     margin-left: 20px;
     margin-top: 10px;
 }
@@ -557,7 +566,7 @@
     border-radius: 20px;
     font-size: 16px;
     font-weight: 500;
-    color: #A7C9B9;
+    color: var(--theme-letterSmall);
     letter-spacing: -0.02em;
 }
 
@@ -605,6 +614,8 @@
     margin: 20px auto;
     height: 50px;
     border-radius: 19px;
+    position: relative;
+    z-index:3
 }
 
 .infoSelect {
@@ -643,6 +654,7 @@
     height: 250px;
     margin: -20px auto -10px auto;
     border-radius: 20px;
+    position: relative
 } 
 
 .infoButtonLeft {
@@ -784,6 +796,9 @@
 @media (max-width: 767px) {
     .objetivoProgress p {
         margin-bottom: 7px ;
+    }
+    .rowCuentas {
+        padding-left: 0;
     }
 }
 
