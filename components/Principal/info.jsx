@@ -37,13 +37,12 @@ const info = () => {
             </div>
 
             <div className={`${style.infoCarrousel}`}>
-                    <div style={{display:'flex', justifyContent:'center', alignItems:'center', background:'#fff',height:'250px', marginTop:'-40px', borderRadius:'20px'}}>
+                    <div style={{display:'flex', justifyContent:'center', alignItems:'center', background:'#fff',height:'250px', marginTop:'-60px', borderRadius:'20px'}}>
                         <ArrowBackIosNewIcon sx={{marginTop:'40px', color:'var(--theme-letterSmall)', cursor:'pointer'}}/>
                         <div className={`${style.infoLeft} col-md-6`}>
                                 Tarjeta con info
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Asperiores dolorem nostrum quas quae, voluptatibus facilis eos veritatis nesciunt excepturi 
+                                    Enterate Sobre las ultimas novedades del mercado
                                 </p>
                         </div>
                         <div className={`${style.infoColImage} col-md-4`}>
