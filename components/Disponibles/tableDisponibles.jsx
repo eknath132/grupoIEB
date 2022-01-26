@@ -12,6 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
 import { makeStyles } from '@mui/styles';
 import Icon from '@mui/material/Icon';
+import { TableSortLabel } from '@mui/material';
 
 const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
         "&::-webkit-scrollbar": {
@@ -29,33 +30,73 @@ const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
         },
 }));
 
-const tableDisponibles = ({columns, data, handdleClickModal}) => {
-    const useStyles = makeStyles((theme) => ({
-        root: {
-          "&::-webkit-scrollbar": {
-            maxWidth: '3px ',
-            color: '#D2CBCF',
-            borderRadius: '10px',
-            height:'3px'
-          },
-          "&::-webkit-scrollbar-track": {
-            boxShadow: `inset 0 0 6px rgba(0, 0, 0, 0.3)`,
-          },
-          "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "darkgrey",
-            outline: `1px solid slategrey`,
-          },
-        },
-        hover: {
-            '&:hover': {
-                backgroundColor:'#E4EBF0' ,
-                cursor: 'pointer'
-            }
+const useStyles = makeStyles((theme) => ({
+    root: {
+      "&::-webkit-scrollbar": {
+        maxWidth: '3px ',
+        color: '#D2CBCF',
+        borderRadius: '10px',
+        height:'3px'
+      },
+      "&::-webkit-scrollbar-track": {
+        boxShadow: `inset 0 0 6px rgba(0, 0, 0, 0.3)`,
+      },
+      "&::-webkit-scrollbar-thumb": {
+        backgroundColor: "darkgrey",
+        outline: `1px solid slategrey`,
+      },
+    },
+    hover: {
+        '&:hover': {
+            backgroundColor:'#E4EBF0' ,
+            cursor: 'pointer'
         }
-      }));
-    const classes = useStyles();
-    const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(10);
+    }
+  }));
+
+  const tableDisponibles = ({columns, data, handdleClickModal}) => {
+      const classes = useStyles();
+      const [orderBy, setOrderBy] = useState('nombre');
+      const [order, setOrder] = useState('asc');
+      const [page, setPage] = useState(0);
+      const [rowsPerPage, setRowsPerPage] = useState(10);
+
+    const handleRequestSort = (id) => {
+        const isAsc = orderBy === id && order === 'asc';
+        setOrder(isAsc ? 'desc' : 'asc');
+        console.log(id)
+        setOrderBy(id);
+    };
+
+    const descendingComparator = (a, b, orderBy) => {
+        if (b[orderBy] < a[orderBy]) {
+          return -1;
+        }
+        if (b[orderBy] > a[orderBy]) {
+          return 1;
+        }
+        return 0;
+    }
+
+    const stableSort = (array, comparator) => {
+        console.log('hola')
+        const stabilizedThis = array.map((el, index) => [el, index]);
+        stabilizedThis.sort((a, b) => {
+        const order = comparator(a[0], b[0]);
+        if (order !== 0) {
+            return order;
+            }
+            return a[1] - b[1];
+        });
+        return stabilizedThis.map((el) => el[0]);
+      }
+
+    const getComparator = (order, orderBy) => {
+        return order === 'desc'
+            ? (a, b) => descendingComparator(a, b, orderBy)
+            : (a, b) => -descendingComparator(a, b, orderBy);
+    }
+
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
@@ -92,15 +133,22 @@ const tableDisponibles = ({columns, data, handdleClickModal}) => {
                                 backgroundColor: '#F9F9FC',
                                 minWidth: column.minWidth
                                 }}
+                                sortDirection={orderBy === column.id ? order : false}
                             >
-                            
-                                {column.label}
+                                <TableSortLabel
+                                    active={orderBy === column.id}
+                                    direction={orderBy === column.id ? order : 'asc'}
+                                    onClick={() => handleRequestSort(column.id)}
+                                >
+
+                                    {column.label}
+                                </TableSortLabel>
                             </TableCell>
                         ))}
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {data
+                        {stableSort(data, getComparator(order, orderBy))
                         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         .map((row) => {
                             return (
