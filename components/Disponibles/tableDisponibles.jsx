@@ -55,11 +55,12 @@ const useStyles = makeStyles((theme) => ({
   }));
 
   const tableDisponibles = ({columns, data, handdleClickModal}) => {
-      const classes = useStyles();
-      const [orderBy, setOrderBy] = useState('nombre');
-      const [order, setOrder] = useState('asc');
-      const [page, setPage] = useState(0);
-      const [rowsPerPage, setRowsPerPage] = useState(10);
+      
+    const classes = useStyles();
+    const [orderBy, setOrderBy] = useState('nombre');
+    const [order, setOrder] = useState('asc');
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
 
     const handleRequestSort = (id) => {
         const isAsc = orderBy === id && order === 'asc';
@@ -80,15 +81,15 @@ const useStyles = makeStyles((theme) => ({
 
     const stableSort = (array, comparator) => {
         console.log('hola')
-        const stabilizedThis = array.map((el, index) => [el, index]);
-        stabilizedThis.sort((a, b) => {
+        const stabilizedThis = array?.map((el, index) => [el, index]);
+        stabilizedThis?.sort((a, b) => {
         const order = comparator(a[0], b[0]);
         if (order !== 0) {
             return order;
             }
             return a[1] - b[1];
         });
-        return stabilizedThis.map((el) => el[0]);
+        return stabilizedThis?.map((el) => el[0]);
       }
 
     const getComparator = (order, orderBy) => {
@@ -107,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
 
     const StyledTableRow = styled(TableRow)(({ theme }) => ({
         '&:nth-of-type(odd)': {
-          backgroundColor: theme.palette.action.hover,
+          backgroundColor: 'rgba(220, 234, 227, 0.35);',
         },
         // hide last border
         '&:last-child td, &:last-child th': {
@@ -126,12 +127,14 @@ const useStyles = makeStyles((theme) => ({
                                 key={column.id}
                                 align={column.align}
                                 style={{
-                                color: '#484964',
-                                fontSize:'12px', 
-                                fontWeight:'bold',
-                                fontFamily: 'DM Sans, sans-serif',
-                                backgroundColor: '#F9F9FC',
-                                minWidth: column.minWidth
+                                    color: '#484964',
+                                    fontSize:'12px',
+                                    borderRight: '1px solid rgba(34,34,34,0.06)',
+                                    borderBottom: 0,
+                                    fontWeight:'bold',
+                                    fontFamily: 'DM Sans, sans-serif',
+                                    backgroundColor: '#F9F9FC',
+                                    minWidth: column.minWidth
                                 }}
                                 sortDirection={orderBy === column.id ? order : false}
                             >
@@ -149,15 +152,15 @@ const useStyles = makeStyles((theme) => ({
                     </TableHead>
                     <TableBody>
                         {stableSort(data, getComparator(order, orderBy))
-                        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        .map((row) => {
+                        ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                        ?.map((row) => {
                             return (
-                            <StyledTableRow tabIndex={-1} key={row.code}>
+                            <StyledTableRow tabIndex={-1} key={row.code} className={classes.hover}>
                                 {columns.map((column) => {
                                 const value = row[column.id];
                                 if(column.id === 'comitente') {
                                     return(
-                                        <TableCell key={column.id} align={column.align} className={classes.hover} style={{fontSize: '11px', fontWeight: 'normal', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
+                                        <TableCell key={column.id} align={column.align} style={{fontSize: '11px', fontWeight: 'normal', borderRight: '1px solid rgba(34,34,34,0.05)', borderBottom: 0}}>
                                             <div  style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
                                                 <Icon style={{root: {textAlign:'center'}, fontSize:'25px',padding:'10px', cursor:'pointer'}} onClick={() => handdleClickModal(row.nombre)}>
                                                     <img style={{height:'600%', marginTop:'-35px', marginLeft:'-14px'}} src="/launch.svg"/>
@@ -169,27 +172,27 @@ const useStyles = makeStyles((theme) => ({
                                 }
                                 if(column.id === 'nombre') {
                                     return(
-                                        <TableCell key={column.id} align={column.align} className={classes.hover} style={{fontSize: '11px', fontWeight: 'normal', fontFamily: 'DM Sans, sans-serif', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
+                                        <TableCell key={column.id} align={column.align} style={{fontSize: '11px', fontWeight: 'normal', fontFamily: 'DM Sans, sans-serif', borderRight: '1px solid rgba(34,34,34,0.05)', borderBottom: 0}}>
                                             {value}
                                         </TableCell>
                                     )
                                 }
                                 if(column.id === 'vencido' && row.vencido < 0) {
                                     return(
-                                        <TableCell key={column.id} align={column.align} className={classes.hover} style={{background:'#FF0000', fontSize: '11px', fontWeight: 'bold', fontFamily: 'DM Sans, sans-serif', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
+                                        <TableCell key={column.id} align={column.align} style={{background:'rgba(255, 0, 0, 0.8)', fontSize: '11px', fontWeight: 'bold', fontFamily: 'DM Sans, sans-serif', borderRight: '1px solid rgba(34,34,34,0.05)', borderBottom: '1px solid red'}}>
                                             {value}
                                         </TableCell>
                                     )
                                 }
                                 if(column.id === 'vencido' && row.vencido > 0) {
                                     return(
-                                        <TableCell key={column.id} align={column.align} className={classes.hover} style={{background:'#5FE96D', fontSize: '11px', fontWeight: 'bold', fontFamily: 'DM Sans, sans-serif', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
+                                        <TableCell key={column.id} align={column.align} style={{background:'rgba(95, 233, 109, 0.7', fontSize: '11px', fontWeight: 'bold', fontFamily: 'DM Sans, sans-serif', borderRight: '1px solid rgba(34,34,34,0.05)', borderBottom: '1px solid green'}}>
                                             {value}
                                         </TableCell>
                                     )
                                 }
                                 return (
-                                    <TableCell key={column.id} align={column.align} className={classes.hover} style={{color: column.color, fontSize: '11px', fontWeight:'normal', fontFamily: 'DM Sans, sans-serif', borderRight: '1px solid rgba(34,34,34,0.2)'}}>
+                                    <TableCell key={column.id} align={column.align} style={{color: column.color, fontSize: '11px', fontWeight:'normal', fontFamily: 'DM Sans, sans-serif', borderRight: '1px solid rgba(34,34,34,0.05)', borderBottom: 0}}>
                                         {value}
                                     </TableCell>
                                 );
@@ -203,7 +206,7 @@ const useStyles = makeStyles((theme) => ({
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
-                // count={data.length}
+                count={data?.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}

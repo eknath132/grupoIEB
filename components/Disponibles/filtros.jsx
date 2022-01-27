@@ -19,13 +19,13 @@ const filtros = ({
     };
 
     return (
-        <div className='col-md-12' style={{height:'76px', display:'flex', marginTop:'20px', justifyContent:'space-around', flexWrap:'wrap', background: 'rgba(220, 234, 227, 0.35)'}}>
-            <div className="col-md-3" >
+        <div className='col-md-12' style={{height:'76px', display:'flex', marginTop:'20px', flexWrap:'wrap', background: 'rgba(220, 234, 227, 0.35)'}}>
+            <div className="col-md-3" style={{marginRight:'10px'}}>
                 {/* <Stack component="form" noValidate sx={{m:1}}> */}
                     <TextFieldInput />
                 {/* </Stack> */}
             </div>
-             <div className="col-md-8 d-flex justify-content-between align-items-center">
+             <div className="col-md-8 d-flex align-items-center">
                 {/* <div style={{display:'flex'}}>
                 <div style={{marginTop:'11px', fontWeight: '500', fontSize: '14px', color:'#3D5A6C', marginRight:'10px'}}>Productor</div> */}
                 <SelectInput

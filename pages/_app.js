@@ -1,11 +1,21 @@
-import '../styles/globals.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { useEffect } from 'react'
+import { useEffect } from 'react';
+import '../styles/globals.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {QueryClient, QueryClientProvider} from 'react-query';
+import {ReactQueryDevtools} from 'react-query/devtools'
+
+const queryClient = new QueryClient();
+
 function MyApp({ Component, pageProps }) {
   useEffect(()=> {
     document.querySelector('body').classList.toggle('light-body')
   },[])
-  return <Component {...pageProps}/>
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Component {...pageProps}/>
+      <ReactQueryDevtools/>
+    </QueryClientProvider>
+  ) 
 }
 
 export default MyApp

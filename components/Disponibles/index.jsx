@@ -11,43 +11,47 @@ import Table from './tableDisponibles';
 import Icon from '@mui/material/Icon';
 import Filtros from './filtros';
 import { filter} from 'lodash';
-import Modal from '../../util/modal'
+import Modal from '../../util/modal';
+import {useQuery} from 'react-query';
+import {DisponiblesFetch} from '../../services/disponibles';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const columns = [
     { 
         id: 'comitente',
         label: 'Comitente',
-        maxWidth: 80,
+        maxWidth: 100,
         align: 'left',            
     },
     { 
         id: 'nombre',
         label: 'Nombre',
-        maxWidth: 80,
+        maxWidth: 100,
         align: 'left',
     },
     {
         id: 'moneda',
         label: 'Moneda',
-        minWidth: 70,
+        minWidth: 100,
         align: 'left'
     },
     {
         id: 'vencido',
         label: 'Vencido',
-        minWidth: 70,
+        minWidth: 100,
         align: 'left'
     },
     {
         id: '24horas',
         label: '24 Horas',
-        minWidth: 70,
+        minWidth: 100,
         align: 'left'
     },
     {
         id: '48horas',
         label: '48 Horas',
-        minWidth: 70,
+        minWidth: 100,
         align: 'left'
     },
     {
@@ -59,25 +63,26 @@ const columns = [
     {
         id: 'Saldo Total',
         label: 'Saldo total',
-        minWidth: 70,
+        minWidth: 100,
         align: 'left'
     },
     {
         id: 'garantia',
         label: 'Garantia',
-        minWidth: 70,
+        minWidth: 100,
         align: 'left'
     },
     {
         id: 'Manager',
         label: 'Manager',
-        minWidth: 70,
+        minWidth: 100,
         align: 'left'
     }
 
 ]
-const index = ({data}) => {
-    const [dataTabla, setDataTabla] = useState(data?.Disponibles)
+const index = () => {
+    
+    const [dataTabla, setDataTabla] = useState()
     const [valueProductor, setValueProductor] = useState('');
     const [valueComitente, setValueComitente] = useState('');
     const [valueMoneda, setValueMoneda] = useState('');
@@ -87,6 +92,13 @@ const index = ({data}) => {
         message: ''
     })
     
+    const { isLoading, error, isSuccess} = useQuery(['disponibles'], DisponiblesFetch ,{
+        refetchOnWindowFocus: false,
+        onSuccess: ({Disponibles})=>{
+            setDataTabla(Disponibles)
+        }
+    })
+
     const handdleMoneda = (e) => {
         console.log('e', e)
         setValueMoneda(e)
@@ -117,7 +129,16 @@ const index = ({data}) => {
     }
 
     return (
-        <div className="row mt-4" style={{paddingLeft:'30px'}}>
+        isLoading ? (
+                <Backdrop
+                    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                    open={true}
+                    onClick={handleClose}
+                >
+                    <CircularProgress color="inherit" />
+                </Backdrop>
+            ): (
+            <div className="row mt-4" style={{paddingLeft:'30px'}}>
                 <div className="col-md-4 d-flex justify-content-start align-items-center" style={{paddingLeft:0}}>
                     <Search>
                         <SearchIconWrapper>
@@ -125,13 +146,13 @@ const index = ({data}) => {
                                 <img style={{height:'100%', marginTop:'-55px', marginLeft:'2px'}} src="/lupa.svg"/>
                             </Icon>
                         </SearchIconWrapper>
-                        <StyledInputBase/>
+                        <StyledInputBase placeholder='Ingrese búsqueda'/>
                     </Search>
-                </div>
-                <div className="col-md-3">
-                    <Icon style={{root: {textAlign:'center'}, fontSize:'40px', borderRadius:'13px', padding:'10px', marginLeft:'auto', cursor:'pointer'}}>
-                        <img style={{height:'100%', marginTop:'-52px', marginLeft:'-3px'}} src="/tab.svg"/>
-                    </Icon>
+                    <div className="col-md-3" style={{paddingTop: '15px'}}>
+                        <Icon style={{root: {textAlign:'center'}, fontSize:'40px', borderRadius:'13px', padding:'10px', marginLeft:'auto', cursor:'pointer'}}>
+                            <img style={{height:'100%', marginTop:'-52px', marginLeft:'-3px'}} src="/tab.svg"/>
+                        </Icon>
+                    </div>
                 </div>
                 <Filtros
                     valueProductor={valueProductor}
@@ -151,7 +172,8 @@ const index = ({data}) => {
                 {
                     modal && <Modal title={bodyModal.title} handleClose={handleClose}/>
                 }
-        </div>
+            </div>
+        )
     )
 }
 
