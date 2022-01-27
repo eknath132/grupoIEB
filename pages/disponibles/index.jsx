@@ -4,7 +4,7 @@ import Layout from '../../components/layout';
 import DisponiblesScreen from '../../components/Disponibles';
 import Styles from '../../styles/Home.module.css';
 
-const Disponibles = ({data}) => {
+const Disponibles = () => {
     
     return (
         <Layout
@@ -22,9 +22,7 @@ const Disponibles = ({data}) => {
 
             <section style={{marginTop: '10px'}}>
                 <div>
-                    <DisponiblesScreen 
-                        data={data}
-                    />
+                    <DisponiblesScreen />
                 </div>
             </section>
         </Layout>
@@ -33,11 +31,11 @@ const Disponibles = ({data}) => {
 
 export default Disponibles;
 
-export async function getServerSideProps() {
+// export async function getServerSideProps() {
     
-    const res = await fetch('https://ieb-qotc1wzgg-peralesazarel-gmailcom.vercel.app/api/hello');
-    const data = await res.json();
-    return {
-        props: {data}
-    }
-}
+//     const res = await fetch('https://ieb-qotc1wzgg-peralesazarel-gmailcom.vercel.app/api/hello');
+//     const data = await res.json();
+//     return {
+//         props: {data}
+//     }
+// }

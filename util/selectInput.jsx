@@ -33,7 +33,7 @@ const CssSelect = styled(FormControl)({
 
 const selectInput = ({label, minWidth, marginTop, options, change, value}) => {
     return (
-        <CssSelect sx={{minWidth: minWidth, borderRadius:'8px'}}>
+        <CssSelect sx={{minWidth: minWidth, borderRadius:'8px', marginRight:'10px'}}>
             <InputLabel id="demo-simple-select-autowidth-label" style={{marginTop: marginTop}}>{label}</InputLabel>
             <Select
                 labelId="demo-simple-select-autowidth-label"

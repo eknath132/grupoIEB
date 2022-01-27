@@ -33,7 +33,7 @@ export default function layout({children, title, description}) {
     }
 
     return (
-        <div className={`${styles.container}`}>
+        <div className={`container-fluid`} style={{padding: '0 30px'}}>
             <Head>
                 <title> {title} </title>
                 <meta name="description" content={description}/>
