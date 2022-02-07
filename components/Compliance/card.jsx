@@ -1,6 +1,8 @@
 import style from '../../styles/compliance.module.css';
 import Avatar from '@mui/material/Avatar';
 import Image from 'next/image';
+import Input from '@mui/material/Input';
+
 
 const Card = ({nombre, estado}) => {
     return (
@@ -96,9 +98,9 @@ const Card = ({nombre, estado}) => {
                     </div>
                 </div>
                 <div className={`${style.cardButtonBox} col-md-12`}>
-                        <button className={`${style.cardRevisar} btn`}> 
-                            Revisar todo
-                        </button>
+                    <button className={`${style.cardRevisar} btn`}> 
+                        Revisar todo
+                    </button>
                 </div>
             </div>
         </div>

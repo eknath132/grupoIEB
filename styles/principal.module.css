@@ -256,7 +256,8 @@
     border-radius: 30px;
     font-size: 11px;
     color: #fff;
-    background: linear-gradient(180deg, #F96000 0%, #FF0000 100%);}
+    background: var(--theme-principal-objetivo)
+}
 
 .objetivoProgress {
     margin-top: 20px;
@@ -312,7 +313,7 @@
 
 .caucionesBox {
     box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.2);
-    border-radius: 19px;
+    border-radius: 22px;
     margin-right: 20px;
     padding: 0;
     width: 220px;
@@ -320,18 +321,18 @@
 }
 
 .caucionesTitle {
-    background: #354F5E;
+    background: var(--theme-principal-caucionesApalancamiento);
     text-align: center;
     height: 80px;
     line-height: 40px;
-    border-radius: 20px 20px 0 0;
+    border-radius: 19px 19px 0 0;
     font-size: 20px;
     font-weight: bold;
     color: #fff
 }
 
 .caucionesSubtitle {
-    background: linear-gradient(180deg, #DBA000 0%, #F96000 100%);
+    background: var(--theme-principal-caucionesSub);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
     width: 80%;
@@ -383,7 +384,7 @@
 }
 
 .caucionesDinero {
-    background: #FF0000;
+    background: var(--theme-principal-dinero);
     opacity: 0.5;
     border-radius: 10px;
     height: 25px;
@@ -410,7 +411,7 @@
 
 .apalancamientoBox {
     box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.2);
-    border-radius: 19px;
+    border-radius: 22px;
     margin-right: 20px;
     padding: 0;
     width: 220px;
@@ -418,12 +419,12 @@
 }
 
 .apalancamientoSubtitle {
-    background: linear-gradient(180deg, #F96000 0%, #FF0000 100%);
+    background: var(--theme-principal-apalancamientoSub);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
     width: 80%;
     height: 90px;
-    border-radius: 20px;
+    border-radius: 19px;
     margin-left: auto;
     margin-right: auto;
     margin-top: -50px;
@@ -457,7 +458,7 @@
 
 .complianceBox {
     box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.07);
-    border-radius: 19px;
+    border-radius: 22px;
     margin-right: 20px;
     padding: 0;
     background-color: #fff;
@@ -467,13 +468,13 @@
     background: rgb(119, 103, 112); /* Old browsers */
     background: -moz-linear-gradient(-45deg, rgba(119, 103, 112,1) 0%, rgba(119, 103, 112,1) 50%, rgba(119, 103, 112,1) 51%, rgba(119, 103, 112,1) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(-45deg, rgba(119, 103, 112,1) 0%,rgba(119, 103, 112,1) 50%,rgba(119, 103, 112,1) 51%,rgba(119, 103, 112,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(140deg, rgba(119, 103, 112,1) 0%,rgba(119, 103, 112,1) 41%,rgba(119, 103, 112,0.9) 42%,rgba(119, 103, 112,0.9) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: var(--theme-principal-compliance);
     text-align: left;
     padding-left: 10px;
     padding-top: 30px;
     height: 100px;
     line-height: 20px;
-    border-radius: 20px;
+    border-radius: 19px;
     font-size: 22px;
     font-weight: bold;
     color: #fff;
@@ -610,7 +611,7 @@
     background: #E8E3E6;
     margin: 20px auto;
     height: 66px;
-    border-radius: 19px;
+    border-radius: 21px;
     position: relative;
     z-index:3
 }

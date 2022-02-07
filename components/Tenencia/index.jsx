@@ -1,21 +1,18 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useState, useEffect} from 'react';
-import {
-    Search,
-    SearchIconWrapper,
-    StyledInputBase
-} from '../../util/search';
+import { useState} from 'react';
+
 import Table from './tableTenencias';
-import Icon from '@mui/material/Icon';
-// import Filtros from './filtros';
 import { filter} from 'lodash';
 import Modal from '../../util/modal';
 import {useQuery} from 'react-query';
 import {TenenciasFetch} from '../../services/tenencias';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import Filtros from './filtros';
+import style from '../../styles/tenencia.module.css';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const columns = [
     { 
@@ -118,7 +115,6 @@ const columns = [
 
 ]
 const index = () => {
-    
     const [dataTabla, setDataTabla] = useState()
     const [valueCliente, setValueCliente] = useState('');
     const [valueProductor, setValueProductor] = useState('');
@@ -129,9 +125,9 @@ const index = () => {
         message: ''
     })
     
-    const { isLoading, error, isSuccess} = useQuery(['tenencias'], TenenciasFetch ,{
+    const { isLoading, error, isSuccess, refetch, isFetching} = useQuery(['tenencias'], TenenciasFetch ,{
         refetchOnWindowFocus: false,
-        onSuccess: ({Tenencias})=>{
+        onSuccess: ({Tenencias}) => {
             setDataTabla(Tenencias)
         }
     })
@@ -174,22 +170,70 @@ const index = () => {
                 </Backdrop>
             ): (
             <div className="row mt-4" style={{paddingLeft:'30px'}}>
-                <div className="col-md-4 d-flex justify-content-start align-items-center" style={{paddingLeft:0}}>
-                    <Search>
-                        <SearchIconWrapper>
-                            <Icon style={{root: {textAlign:'center'}, fontSize:'40px', padding:'10px', marginTop:'10px', marginLeft:'auto'}}>
-                                <img style={{height:'100%', marginTop:'-55px', marginLeft:'2px'}} src="/lupa.svg"/>
-                            </Icon>
-                        </SearchIconWrapper>
-                        <StyledInputBase placeholder='Ingrese búsqueda'/>
-                    </Search>
-                    <div className="col-md-3" style={{paddingTop: '15px'}}>
-                        <Icon style={{root: {textAlign:'center'}, fontSize:'40px', borderRadius:'13px', padding:'10px', marginLeft:'auto', cursor:'pointer'}}>
-                            <img style={{height:'100%', marginTop:'-52px', marginLeft:'-3px'}} src="/tab.svg"/>
-                        </Icon>
+                <div className="col-md-3 d-flex justify-content-start align-items-center">
+                    <div className={`${style.cuentaBoxFirst} col-md-12`}>
+                        <div> 
+                            <h3>
+                                Tenencia
+                            </h3>
+                            <h4>
+                                total
+                            </h4>
+                        </div>
+                        <div className={style.cuentaBoxRight}> 
+                            <KeyboardArrowDownIcon className={style.arrowDown} sx={{cursor:'pointer'}}/>
+                        </div>
                     </div>
                 </div>
-                {/* <Filtros
+
+                <div className="col-md-3 d-flex justify-content-start align-items-center" >
+                    <div className={`${style.cuentaBoxSecond} col-md-12`}>
+                        <div> 
+                            <h3>
+                                Tenencia por
+                            </h3>
+                            <h4>
+                                cliente
+                            </h4>
+                        </div>
+                        <div className={style.cuentaBoxRight}> 
+                            <KeyboardArrowDownIcon className={style.arrowDown} sx={{cursor:'pointer'}}/>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="col-md-3 d-flex justify-content-start align-items-center">
+                    <div className={`${style.cuentaBoxThree} col-md-12`}>
+                        <div> 
+                            <h3>
+                                Tenencia por
+                            </h3>
+                            <h4>
+                                instrumento
+                            </h4>
+                        </div>
+                        <div className={style.cuentaBoxRight}> 
+                            <KeyboardArrowDownIcon className={style.arrowDown} sx={{cursor:'pointer'}}/>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="col-md-3 d-flex justify-content-start align-items-center">
+                    <div className={`${style.cuentaBoxThree} col-md-12`}>
+                        <div>
+                            <h3>
+                                Tenencia por
+                            </h3>
+                            <h4>
+                                cliente
+                            </h4>
+                        </div>
+                        <div className={style.cuentaBoxRight}> 
+                            <KeyboardArrowDownIcon className={style.arrowDown} sx={{cursor:'pointer'}}/>
+                        </div>
+                    </div>
+                </div>
+                <Filtros
                     valueCliente={valueCliente}
                     valueProductor={valueProductor}
                     valueMoneda={valueMoneda}
@@ -198,11 +242,14 @@ const index = () => {
                     handdleMoneda={handdleMoneda}
                     handdleCliente={handdleCliente}
                     handdleProductor={handdleProductor}
-                /> */}
+                    data={dataTabla}
+                    refetch={refetch}
+                />
                 <Table 
                     columns={columns}
                     data={dataTabla}
                     handdleClickModal={handdleClickModal}
+                    isFetching={isFetching}
                 />
                 {
                     modal && <Modal title={bodyModal.title} handleClose={handleClose}/>

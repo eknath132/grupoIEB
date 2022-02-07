@@ -23,7 +23,6 @@ const cauciones = () => {
             numComitente: '4',
             plata: '200Mil'
         },
-    
     ]
 
     return (

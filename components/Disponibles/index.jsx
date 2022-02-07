@@ -11,9 +11,9 @@ import Table from './tableDisponibles';
 import Icon from '@mui/material/Icon';
 import Filtros from './filtros';
 import { filter} from 'lodash';
-import Modal from '../../util/modal';
+import Modal from '../../util/modalDisponibles';
 import {useQuery} from 'react-query';
-import {DisponiblesFetch} from '../../services/disponibles';
+import {DisponiblesFetch, ProductoresFetch} from '../../services/disponibles';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -82,10 +82,13 @@ const columns = [
 ]
 const index = () => {
     
-    const [dataTabla, setDataTabla] = useState()
+    const [dataTabla, setDataTabla] = useState([])
+    const [dataProductores, setDataProductores] = useState([])
+    const [filters, setFilters] = useState()
     const [valueProductor, setValueProductor] = useState('');
     const [valueComitente, setValueComitente] = useState('');
     const [valueMoneda, setValueMoneda] = useState('');
+    const [valueInmediato, setValueInmediato] = useState('Inmediato')
     const [modal, setModal] = useState(false);
     const [bodyModal, setBodyModal] = useState({
         title: '',
@@ -99,28 +102,40 @@ const index = () => {
         }
     })
 
+    const {error: errorProductores} = useQuery(['productores'], ProductoresFetch ,{
+        refetchOnWindowFocus: false,
+        onSuccess: ({Productores})=>{
+            setDataProductores(Productores)
+        }
+    })
+
     const handdleMoneda = (e) => {
-        console.log('e', e)
+        if(e){
+            setValueMoneda(e)
+            const body = filter(dataTabla, dat =>{
+                if(valueComitente){
+                   return dat.moneda === e && dat.comitente === valueComitente
+                }
+                return dat.moneda === e
+            })
+            return setFilters(body)
+        }
         setValueMoneda(e)
-        const body = filter(data.Disponibles, dat =>{
-            if(valueComitente){
-               return dat.moneda === e && dat.comitente === valueComitente
-            }
-            return dat.moneda === e
-        })
-        setDataTabla(body)
+        setFilters('')
     }
 
     const handdleProductor = (productor) => {
-        console.log('productor', productor)
         setValueProductor(productor)
     }
     const handdleComitente = (comitente) => {
         setValueComitente(comitente)
     }
 
+    const handdleInmediato = (inmediato) => {
+        setValueInmediato(inmediato)
+    }
+
     const handdleClickModal = (comitente) => {
-        console.log(comitente)
         setModal(true)
         setBodyModal({...bodyModal, title: comitente})
     }
@@ -158,19 +173,27 @@ const index = () => {
                     valueProductor={valueProductor}
                     valueComitente={valueComitente}
                     valueMoneda={valueMoneda}
-                    setValueProductor={setValueProductor}
-                    setValueComitente={setValueComitente}
                     handdleMoneda={handdleMoneda}
                     handdleProductor={handdleProductor}
                     handdleComitente={handdleComitente}
+                    data={filters ? filters : dataTabla}
+                    productores={dataProductores}
                 />
                 <Table 
                     columns={columns}
-                    data={dataTabla}
+                    data={filters ? filters :dataTabla}
                     handdleClickModal={handdleClickModal}
                 />
                 {
-                    modal && <Modal title={bodyModal.title} handleClose={handleClose}/>
+                    modal && 
+                    <Modal 
+                        title={bodyModal.title} 
+                        handleClose={handleClose}
+                        valueInmediato={valueInmediato}
+                        handdleInmediato={handdleInmediato}
+                        orderOne={1}
+                        orderTwo={2}
+                    />
                 }
             </div>
         )

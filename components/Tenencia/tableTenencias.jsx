@@ -12,7 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
 import { makeStyles } from '@mui/styles';
 import Icon from '@mui/material/Icon';
-import { TableSortLabel } from '@mui/material';
+import { Backdrop, CircularProgress, TableSortLabel } from '@mui/material';
 
 const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
         "&::-webkit-scrollbar": {
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-  const tableDisponibles = ({columns, data, handdleClickModal}) => {
+  const tableDisponibles = ({columns, data, handdleClickModal,isFetching}) => {
       
     const classes = useStyles();
     const [orderBy, setOrderBy] = useState('cliente');
@@ -117,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
     }));
       
     return (
-        <>
+        <> 
             <StyledTableContainer sx={{ maxHeight: 650, paddingLeft:'0 !important'}}>
                 <Table stickyHeader aria-label="sticky table" style={{}}>
                     <TableHead>
@@ -206,7 +206,7 @@ const useStyles = makeStyles((theme) => ({
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
-                count={data?.length}
+                count={data ? data?.length: 0}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}

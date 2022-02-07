@@ -31,8 +31,18 @@ const CssSelect = styled(FormControl)({
     },
 });
 
-const selectInput = ({label, minWidth, marginTop, options, change, value}) => {
+const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: 200,
+        // width: 140,
+      },
+    },
+  };
+
+const selectInput = ({label, minWidth, marginTop, options, change, value, modal=false}) => {
     return (
+        modal !== true ? (
         <CssSelect sx={{minWidth: minWidth, borderRadius:'8px', marginRight:'10px'}}>
             <InputLabel id="demo-simple-select-autowidth-label" style={{marginTop: marginTop}}>{label}</InputLabel>
             <Select
@@ -43,13 +53,34 @@ const selectInput = ({label, minWidth, marginTop, options, change, value}) => {
                 label={label}
                 onChange={(e) => change(e.target.value)}
                 sx={{height:45, background: '#E4EBF0', verticalAlign:'middle'}}
+                MenuProps={MenuProps}
             >
                 <MenuItem value=''>
                     <em>Ninguno</em>
                 </MenuItem>
+                {options.map(opt => <MenuItem key={opt.productorid} value={opt.productorid}>{opt.nombre}</MenuItem> )}
+            </Select>
+        </CssSelect>
+        ):(
+            <CssSelect sx={{minWidth: minWidth, borderRadius:'8px', marginRight:'10px'}}>
+            {/* <InputLabel id="demo-simple-select-autowidth-label">{label}</InputLabel> */}
+            <Select
+                labelId="demo-simple-select-autowidth-label"
+                id="demo-simple-select-autowidth"
+                value={value}
+                defaultValue='elija'
+                autoWidth
+                label={label}
+                onChange={(e) => change(e.target.value)}
+                sx={{height:30, background: '#E4EBF0'}}
+            >
+                <MenuItem value='Inmediato'>
+                    Inmediato
+                </MenuItem>
                 {options.map(opt => <MenuItem key={opt.value} value={opt.value}>{opt.label}</MenuItem> )}
             </Select>
         </CssSelect>
+        )
     )
 }
 

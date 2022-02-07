@@ -19,7 +19,6 @@ import { CSSTransition } from "react-transition-group";
 import { urlObjectKeys } from 'next/dist/shared/lib/utils';
 
 const index = ({precio}) => {
-    const [dark, setDark] = useState('light-body')
     const [showList, setShowList] = useState(true)
 
 
@@ -27,12 +26,6 @@ const index = ({precio}) => {
         setShowList(showList ? false : true);
     };
 
-    const handdleCambiar = () => {
-        console.log('cambiando')
-        document.querySelector('body').classList.remove( dark === 'light-body' ? 'light-body' : 'dark-body')
-        document.querySelector('body').classList.toggle( dark === 'light-body' ? 'dark-body' : 'light-body')
-        setDark(dark === 'light-body' ? 'dark-body' : 'light-body')
-    }
     
     return (
         <>  
