@@ -15,6 +15,7 @@ import Icon from '@mui/material/Icon';
 import { TableSortLabel } from '@mui/material';
 
 const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
+        background: '#FFF',
         "&::-webkit-scrollbar": {
           maxWidth: '5px ',
           color: '#D2CBCF',
@@ -65,7 +66,6 @@ const useStyles = makeStyles((theme) => ({
     const handleRequestSort = (id) => {
         const isAsc = orderBy === id && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');
-        console.log(id)
         setOrderBy(id);
     };
 
@@ -80,7 +80,6 @@ const useStyles = makeStyles((theme) => ({
     }
 
     const stableSort = (array, comparator) => {
-        console.log('hola')
         const stabilizedThis = array?.map((el, index) => [el, index]);
         stabilizedThis?.sort((a, b) => {
         const order = comparator(a[0], b[0]);
@@ -119,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
     return (
         <>
             <StyledTableContainer sx={{ maxHeight: 650, paddingLeft:'0 !important'}}>
-                <Table stickyHeader aria-label="sticky table" style={{}}>
+                <Table stickyHeader aria-label="sticky table">
                     <TableHead>
                         <TableRow>
                         {columns.map((column) => (
@@ -162,7 +161,7 @@ const useStyles = makeStyles((theme) => ({
                                     return(
                                         <TableCell key={column.id} align={column.align} style={{fontSize: '11px', fontWeight: 'normal', borderRight: '1px solid rgba(34,34,34,0.05)', borderBottom: 0}}>
                                             <div  style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
-                                                <Icon style={{root: {textAlign:'center'}, fontSize:'25px',padding:'10px', cursor:'pointer'}} onClick={() => handdleClickModal(row.nombre)}>
+                                                <Icon style={{root: {textAlign:'center'}, fontSize:'25px',padding:'10px', cursor:'pointer'}} onClick={() => handdleClickModal(row.comitente)}>
                                                     <img style={{height:'600%', marginTop:'-35px', marginLeft:'-14px'}} src="/launch.svg"/>
                                                 </Icon>
                                                 {value}
@@ -206,12 +205,13 @@ const useStyles = makeStyles((theme) => ({
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
-                count={data?.length}
+                count= {data ? data?.length: 0}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
                 labelRowsPerPage='Paginas'
+                sx={{background:'#FFF'}}
             />
         </>
     )

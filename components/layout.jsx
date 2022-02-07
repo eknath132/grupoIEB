@@ -4,8 +4,6 @@
 import Head from "next/head";
 import Router from 'next/router'
 import Link from "next/link";
-import Image from "next/image";
-import Tooltip from '@mui/material/Tooltip';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Hidden from '@mui/material/Hidden';
 
@@ -14,7 +12,6 @@ import { useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import Icon from '@mui/material/Icon';
-import { height, textAlign } from "@mui/system";
 
 export default function layout({children, title, description}) {
 
@@ -80,7 +77,7 @@ export default function layout({children, title, description}) {
                             <li className={styles.li}>
                                 <Link href={"/productor/1"}>
                                     <a>
-                                        <Icon style={{root: {textAlign:'center'}, fontSize:'45px', border:'2px solid var(--theme-letterSmall)', borderRadius:'10px', padding:'10px', marginTop:'10px', marginLeft:'auto'}}>
+                                        <Icon style={{root: {textAlign:'center'}, fontSize:'45px', border:'2px solid #A7C9B9', borderRadius:'10px', padding:'10px', marginTop:'10px', marginLeft:'auto'}}>
                                             <img style={{height:'150%', marginTop:'-54px', marginLeft:'-2px'}} src="/campana.svg"/>
                                         </Icon>
                                     </a>
@@ -100,7 +97,7 @@ export default function layout({children, title, description}) {
                                 </Link> 
                             </li>
                             <li className={styles.li}> 
-                                <Link href={"/"}>
+                                <Link href={"/tenencias"}>
                                     <a>
                                         <Icon style={{root: {textAlign:'center'}, fontSize:'45px', borderRadius:'13px', padding:'10px', marginLeft:'auto'}}>
                                             <img style={{height:'100%', marginTop:'-52px', marginLeft:'-3px'}} src="/tenencias.svg"/>

@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { createFilterOptions } from '@mui/material/Autocomplete';
-import SelectInput from '../../util/selectInput'
-import { makeStyles } from '@mui/styles';
-import TextFieldInput from '../../util/textField'
+import SelectInput from '../../util/selectInput';
+import TextFieldInput from '../../util/textField';
+import { CSVLink } from "react-csv";
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const filtros = ({
     handdleProductor,
@@ -10,20 +10,58 @@ const filtros = ({
     handdleMoneda,
     valueProductor,
     valueComitente,
-    valueMoneda
+    valueMoneda,
+    data,
+    productores
 }) => {
+    const columns = [
+        { 
+            key: 'comitente',
+            label: 'Comitente',
+        },
+        { 
+            key: 'nombre',
+            label: 'Nombre',
+        },
+        {
+            key: 'moneda',
+            label: 'Moneda',
+        },
+        {
+            key: 'vencido',
+            label: 'Vencido',
+        },
+        {
+            key: '24horas',
+            label: '24 Horas',
+        },
+        {
+            key: '48horas',
+            label: '48 Horas',
+        },
+        {
+            key: '+48horas',
+            label: '+ 48 Horas',
+        },
+        {
+            key: 'Saldo Total',
+            label: 'Saldo total',
+        },
+        {
+            key: 'garantia',
+            label: 'Garantia',
+        },
+        {
+            key: 'Manager',
+            label: 'Manager',
+        }
     
-    const defaultFilterOptions = createFilterOptions();
-    const filterOptions = (options, state) => {
-        return defaultFilterOptions(options, state).slice(0, 2);
-    };
-
+    ]
+    
     return (
-        <div className='col-md-12' style={{height:'76px', display:'flex', marginTop:'20px', flexWrap:'wrap', background: 'rgba(220, 234, 227, 0.35)'}}>
+        <div className='col-md-12' style={{height:'76px', display:'flex', marginTop:'20px', flexWrap:'wrap', background: 'var(--theme-disponibles-filtros)'}}>
             <div className="col-md-3" style={{marginRight:'10px'}}>
-                {/* <Stack component="form" noValidate sx={{m:1}}> */}
-                    <TextFieldInput />
-                {/* </Stack> */}
+                <TextFieldInput />
             </div>
              <div className="col-md-8 d-flex align-items-center">
                 {/* <div style={{display:'flex'}}>
@@ -32,21 +70,7 @@ const filtros = ({
                     minWidth= {120} 
                     marginTop= {'-5px'}
                     label= "Productor"
-                    options= {[ 
-                        {
-                            value: 'Productor1',
-                            label:'Productor1'
-                        },
-                        {
-                            value: 'Productor2',
-                            label:'Productor2'
-                        },
-                        {
-                            value: 'Productor3',
-                            label:'Productor3'
-                        },
-
-                    ]}
+                    options= {productores}
                     value={valueProductor}
                     change={handdleProductor}
                 />
@@ -60,15 +84,15 @@ const filtros = ({
                         options= {[ 
                             {
                                 value: 'Comitente1',
-                                label:'Comitente1'
+                                nombre:'Comitente1'
                             },
                             {
                                 value: 'Comitente2',
-                                label:'Comitente2'
+                                nombre:'Comitente2'
                             },
                             {
                                 value: 'Comitente3',
-                                label:'Comitente3'
+                                nombre:'Comitente3'
                             },
 
                         ]}
@@ -85,21 +109,24 @@ const filtros = ({
                         options= {[ 
                             {
                                 value: 'PESOS',
-                                label:'Pesos'
+                                nombre:'Pesos'
                             },
                             {
                                 value: 'USD',
-                                label:'Usd'
+                                nombre:'Usd'
                             },
                             {
                                 value: 'DOLAR EXT.',
-                                label:'Dolar ext.'
+                                nombre:'Dolar ext.'
                             },
 
                         ]}
                         value={valueMoneda}
                         change={handdleMoneda}
                     />
+                    <CSVLink data={data? data : []} headers={columns} style={{color:'black'}}>
+                        <ArrowDownwardIcon/>
+                    </CSVLink>
                 {/* </div> */}
              </div>
         </div>
