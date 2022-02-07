@@ -5,7 +5,7 @@ import { useState} from 'react';
 
 import Table from './tableTenencias';
 import { filter} from 'lodash';
-import Modal from '../../util/modal';
+// import Modal from '../../util/modal';
 import {useQuery} from 'react-query';
 import {TenenciasFetch} from '../../services/tenencias';
 import Backdrop from '@mui/material/Backdrop';
@@ -251,9 +251,9 @@ const index = () => {
                     handdleClickModal={handdleClickModal}
                     isFetching={isFetching}
                 />
-                {
+                {/* {
                     modal && <Modal title={bodyModal.title} handleClose={handleClose}/>
-                }
+                } */}
             </div>
         )
     )
