@@ -58,7 +58,7 @@ const selectInput = ({label, minWidth, marginTop, options, change, value, modal=
                 <MenuItem value=''>
                     <em>Ninguno</em>
                 </MenuItem>
-                {options.map(opt => <MenuItem key={opt.productorid} value={opt.productorid}>{opt.nombre}</MenuItem> )}
+                {options?.map(opt => <MenuItem key={opt.id} value={opt.id}>{opt.label}</MenuItem> )}
             </Select>
         </CssSelect>
         ):(

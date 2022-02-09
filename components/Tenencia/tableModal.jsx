@@ -44,7 +44,6 @@ const tableModal = () => {
             plata: 'Documentacion vencida'
         },
     ]
-    console.log('imagen', file)
     return (
         <div>
            {clientes.map(cli => (

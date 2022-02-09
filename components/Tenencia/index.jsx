@@ -151,7 +151,6 @@ const index = () => {
     }
 
     const handdleClickModal = (comitente) => {
-        console.log(comitente)
         setModal(true)
         setBodyModal({...bodyModal, title: comitente})
     }

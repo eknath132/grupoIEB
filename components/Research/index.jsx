@@ -29,7 +29,6 @@ const index = () => {
     
     const handdleCalendar = (newValue) => {
         setValue(newValue)
-        console.log(newValue)
     }
 
     return (

@@ -40,8 +40,6 @@ const Cuentas = () => {
         setNombre(nombre)
         setEstado(estado)
     }
-
-    console.log(nombre, estado)
       
     return (
         <div className="row mt-4">
