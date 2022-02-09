@@ -65,7 +65,6 @@ const useStyles = makeStyles((theme) => ({
     const handleRequestSort = (id) => {
         const isAsc = orderBy === id && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');
-        console.log(id)
         setOrderBy(id);
     };
 
