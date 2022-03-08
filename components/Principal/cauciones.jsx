@@ -26,13 +26,24 @@ const cauciones = () => {
     ]
 
     return (
-        <div className={`${style.caucionesBox} col`}>
+        <div style={{height:'100%'}}>
             <p className={style.caucionesTitle}>
                 Cauciones
             </p>
             <div className={style.caucionesSubtitle}>
-                <p> 55 </p>
-                <p> Próximos a vencer</p>
+                {/* <p> 55 </p>
+                <p> Próximos a vencer</p> */}
+                <div style={{border:'1px solid black', width:'60%', height:'80%', marginLeft:'-20px', borderRadius:'19px', display:'flex', alignItems:'center', justifyContent:'center'}}>
+                    $100.000
+                </div>
+                <div style={{marginLeft:'10px'}}>
+                    <div style={{fontSize:'14px'}}>
+                        Excedido
+                    </div>
+                    <div style={{fontSize:'14px', lineHeight:'10px' }}>
+                        Total
+                    </div>
+                </div>
             </div>
             {clientes.map(cli => {
                 return ( 

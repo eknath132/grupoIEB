@@ -15,6 +15,7 @@ import Icon from '@mui/material/Icon';
 import { Backdrop, CircularProgress, TableSortLabel } from '@mui/material';
 
 const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
+        // width: `calc(${theme.spacing(4)} + 1px)`,
         "&::-webkit-scrollbar": {
           maxWidth: '5px ',
           color: '#D2CBCF',
@@ -79,7 +80,6 @@ const useStyles = makeStyles((theme) => ({
     }
 
     const stableSort = (array, comparator) => {
-        console.log('hola')
         const stabilizedThis = array?.map((el, index) => [el, index]);
         stabilizedThis?.sort((a, b) => {
         const order = comparator(a[0], b[0]);
@@ -117,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
       
     return (
         <> 
-            <StyledTableContainer sx={{ maxHeight: 650, paddingLeft:'0 !important'}}>
+            <TableContainer sx={{ maxHeight: 650, paddingLeft:'0 !important',}}>
                 <Table stickyHeader aria-label="sticky table" style={{}}>
                     <TableHead>
                         <TableRow>
@@ -201,7 +201,7 @@ const useStyles = makeStyles((theme) => ({
                         })}
                     </TableBody>
                 </Table>
-            </StyledTableContainer>
+            </TableContainer>
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"

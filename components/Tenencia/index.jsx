@@ -244,12 +244,12 @@ const index = () => {
                     data={dataTabla}
                     refetch={refetch}
                 />
-                <Table 
+                {/* <Table 
                     columns={columns}
                     data={dataTabla}
                     handdleClickModal={handdleClickModal}
                     isFetching={isFetching}
-                />
+                /> */}
                 {/* {
                     modal && <Modal title={bodyModal.title} handleClose={handleClose}/>
                 } */}

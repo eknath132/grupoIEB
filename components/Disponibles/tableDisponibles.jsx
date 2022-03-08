@@ -16,6 +16,7 @@ import { TableSortLabel } from '@mui/material';
 
 const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
         background: '#FFF',
+        widht:'100%',
         "&::-webkit-scrollbar": {
           maxWidth: '5px ',
           color: '#D2CBCF',
@@ -116,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
     }));
       
     return (
-        <>
+        <div style={{width: '100%'}}>
             <StyledTableContainer sx={{ maxHeight: 650, paddingLeft:'0 !important'}}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
@@ -213,7 +214,7 @@ const useStyles = makeStyles((theme) => ({
                 labelRowsPerPage='Paginas'
                 sx={{background:'#FFF'}}
             />
-        </>
+        </div>
     )
 }
 

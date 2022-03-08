@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, {useState} from 'react'
+import React, {useState,useRef} from 'react'
 import Avatar from '@mui/material/Avatar';
 import style from '../../styles/informacion.module.css'
 import Menu from '@mui/material/Menu';
@@ -11,9 +11,13 @@ import Icon from '@mui/material/Icon';
 import Switch from '@mui/material/Switch';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
 import ButtonGroup from '@mui/material/ButtonGroup';
+import { Divider } from '@mui/material';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
-const informacion = ({title, name, subtitle, active, avatar}) => {
+const informacion = ({title, name, subtitle, active, avatar, drawerShow}) => {
 
     const [anchorEl, setAnchorEl] = useState(false);
     const [close, setClose] = useState(false)
@@ -22,6 +26,7 @@ const informacion = ({title, name, subtitle, active, avatar}) => {
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
+
 
     const handleClose = () => {
         setAnchorEl(null);
@@ -45,7 +50,6 @@ const informacion = ({title, name, subtitle, active, avatar}) => {
         localStorage.setItem('darkMode', 'dark-body' )
     }
 
-
     return (
         <div className='row'>
             <div className={'col-xs-12 col-md-6'} style={{background:'var(--theme-background)', zIndex:'2'}}>
@@ -62,10 +66,12 @@ const informacion = ({title, name, subtitle, active, avatar}) => {
                     <StyledInputBase onClick={()=> setClose(true)}/>
                 </Search> */}
                 {/* <Switch checked={false} onClick={() => handdleCambiar()}/> */}
-                <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                {/* <ButtonGroup variant="contained" aria-label="outlined primary button group">
                     <Button onClick={() => handdleCambiarDark()}>Dark</Button>
                     <Button onClick={() => handdleCambiarLight()}>Light</Button>
-                </ButtonGroup>
+                </ButtonGroup> */}
+                <CalendarTodayIcon sx={{cursor:'pointer'}} fontSize='large'/>
+                <NotificationsIcon sx={{marginLeft:'10px', cursor:'pointer'}} fontSize='large' onClick={() => drawerShow()}/>
                 <Avatar alt="Remy Sharp" src={avatar} sx={{margin:'0 10px'}}/>
                 <div>
                     <p className={style.subtitle}> {subtitle} </p>
@@ -80,10 +86,18 @@ const informacion = ({title, name, subtitle, active, avatar}) => {
                     MenuListProps={{
                     'aria-labelledby': 'basic-button',
                     }}
-                    style={{marginLeft:'-50px', marginTop:'12px'}}
+                    style={{marginLeft:'-30px', marginTop:'12px'}}
                 >
-                    <MenuItem onClick={handleClose}>Perfil</MenuItem>
-                    <MenuItem onClick={handleClose}>Cerrar Sesión</MenuItem>
+                    <MenuItem onClick={handleClose}>Mi cuenta</MenuItem>
+                    <MenuItem onClick={handleClose}>Configuración</MenuItem>
+                    <MenuItem onClick={handleClose}>Documentación</MenuItem>
+                    <Divider/>
+                    <MenuItem onClick={handleClose}>
+                        Cerrar Sesión
+                        <Icon style={{root: {textAlign:'center'}, fontSize:'20px', borderRadius:'13px', marginLeft:'20px', }}>
+                            <img style={{height:'100%', marginTop:'-17px', marginLeft:'3px'}} src="/Out.svg"/>
+                        </Icon>
+                    </MenuItem>
                 </Menu>
             </div>
         </div>
