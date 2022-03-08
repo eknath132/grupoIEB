@@ -108,14 +108,14 @@ const index = () => {
         }
     })
 
-    const {error: errorProductores} = useQuery(['productores'], ProductoresFetch ,{
+    const {error: errorProductores, refetch: refetchProductores} = useQuery(['productores'], ProductoresFetch ,{
         refetchOnWindowFocus: false,
         onSuccess: ({Productores})=>{
             setDataProductores(Productores.map(productor => ({id: productor.nombre, label: productor.nombre})))
         }
     })
 
-    const {error: errorComitente} = useQuery(['comitentes'], ComitentesFetch ,{
+    const {error: errorComitente, refetch: refetchComitentes} = useQuery(['comitentes'], ComitentesFetch ,{
         refetchOnWindowFocus: false,
         onSuccess: ({Clientes})=> {
             setDataComitentes(Clientes.map(comitente => ({id: comitente.Comitente, label: comitente.Nombre}) ))
@@ -185,6 +185,8 @@ const index = () => {
         setValueMoneda('')
         setValueProductor('')
         setValueComitente('')
+        refetchProductores()
+        refetchComitentes()
         setCheckFilter({...checkFilter, productor:true, comitente: true, moneda:true})
         setFilters('')
     }
@@ -238,25 +240,30 @@ const index = () => {
                         </Icon>
                     </div>
                 </div>
-                <Filtros
-                    valueProductor={valueProductor}
-                    valueComitente={valueComitente}
-                    valueMoneda={valueMoneda}
-                    handdleMoneda={handdleMoneda}
-                    handdleProductor={handdleProductor}
-                    handdleComitente={handdleComitente}
-                    handdleFiltros={handdleFiltros}
-                    handdleOnChange={handdleOnChange}
-                    data={filters ? filters : dataTabla}
-                    productores={dataProductores}
-                    comitentes={dataComitentes}
-                    checkFilter={checkFilter}
-                />
-                <Table 
-                    columns={columns}
-                    data={filters ? filters :dataTabla}
-                    handdleClickModal={handdleClickModal}
-                />
+                <div className='col-md-12'>
+                    <Filtros
+                        valueProductor={valueProductor}
+                        valueComitente={valueComitente}
+                        valueMoneda={valueMoneda}
+                        handdleMoneda={handdleMoneda}
+                        handdleProductor={handdleProductor}
+                        handdleComitente={handdleComitente}
+                        handdleFiltros={handdleFiltros}
+                        handdleOnChange={handdleOnChange}
+                        data={filters ? filters : dataTabla}
+                        productores={dataProductores}
+                        comitentes={dataComitentes}
+                        checkFilter={checkFilter}
+                    />
+                </div>
+                <div className='col-md-12'>
+                    <Table 
+                        columns={columns}
+                        data={filters ? filters :dataTabla}
+                        handdleClickModal={handdleClickModal}
+                    />
+                </div>
+                
                 {
                     modal && 
                     <Modal 

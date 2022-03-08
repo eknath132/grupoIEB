@@ -25,12 +25,3 @@ const Id = ({data, warning}) => {
 }
 
 export default Id;
-
-export async function getServerSideProps(context) {
-    const {params} = context
-    const res = await fetch(`https://reqres.in/api/users/${params.id}`);
-    const {data} = await res.json();
-    return {
-        props: {data}
-    }
-}

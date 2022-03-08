@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+import {useState} from 'react';
 import TextFieldInput from '../../util/textField';
 import { CSVLink } from "react-csv";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -97,8 +98,8 @@ const filtros = ({
                 <TextFieldInput />
             </div>
              <div className="col-md-8 d-flex align-items-center">
-                <AutoComplete checkFilter={checkFilter.productor} conditional={'productor'} handdleOnChange={handdleOnChange} valueOption={valueProductor} label={'Productor'} options={productores} change={handdleProductor}/>
-                <AutoComplete checkFilter={checkFilter.comitente} conditional={'comitente'} handdleOnChange={handdleOnChange} valueOption={valueComitente} label={'Comitente'} options={comitentes} change={handdleComitente}/>
+                <AutoComplete checkFilter={checkFilter.productor} conditional={'productor'} handdleOnChange={handdleOnChange} valueOption={valueProductor} label={'Productor'} options= {productores} change={handdleProductor}/>
+                <AutoComplete checkFilter={checkFilter.comitente} conditional={'comitente'} handdleOnChange={handdleOnChange} valueOption={valueComitente} label={'Comitente'} options= {comitentes}  change={handdleComitente}/>
                 <AutoComplete
                     checkFilter={checkFilter.moneda}
                     conditional={'moneda'}
@@ -118,8 +119,8 @@ const filtros = ({
                             id: 'DOLAR EXT.',
                             label:'Dolar ext.'
                         },
-
-                    ]} 
+                    
+                    ]}
                     change={handdleMoneda}/>
                 <CSVLink data={data? data : []} headers={columns} style={{color:'black'}}>
                     <ArrowDownwardIcon/>

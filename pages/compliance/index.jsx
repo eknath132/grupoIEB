@@ -28,11 +28,3 @@ const Compliance = () => {
 }
 
 export default Compliance;
-
-export async function getServerSideProps() {
-    const res = await fetch('https://reqres.in/api/users/');
-    const {data} = await res.json();
-    return {
-        props: {data}
-    }
-}

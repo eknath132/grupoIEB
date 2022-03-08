@@ -9,11 +9,12 @@ const queryClient = new QueryClient();
 function MyApp({ Component, pageProps }) {
   useEffect(()=> {
     document.querySelector('body').classList.toggle('light-body')
+    document.getElementById('__next').classList.toggle('body-height')
   },[])
   return (
     <QueryClientProvider client={queryClient}>
       <Component {...pageProps}/>
-      <ReactQueryDevtools/>
+      {/* <ReactQueryDevtools/> */}
     </QueryClientProvider>
   ) 
 }

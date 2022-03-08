@@ -46,59 +46,59 @@ const comisiones = ({value, mesAnterior, mesActual}) => {
     }
 
     return (
-            <div className={`${style.cuentas} col-md-12 col-lg-5 p-3 mt-4`}>
-                <div className='row'>
-                    <div className={`${style.cuentasBox} col-md-12 col-lg-6`}>
-                        <div className={style.comisionesBoxLeft}> 
-                            <h3>
-                                Comisiones
-                            </h3>
-                            <h4 style={{maxHeight:'10px'}}>
-                                del mes
-                            </h4>
-                        </div>
-                        <div className={style.cuentasBoxRight}> 
-                            <h3>
-                                90K
-                            </h3>
-                            <h4>
-                                Total
-                            </h4>
-                        </div>
+            <div className='row'>
+                <div className='col-md-6' style={{padding:' 5px 10px', height:'100px',alignItems:'center', position:'relative'}}>
+                    <div className={`${style.objetivoButton}`} style={{position:'absolute', right:0, top:0, marginRight:'40px'}}>
+                        <p>
+                            lejos del objetivo
+                        </p>
                     </div>
-                    <div className={`${style.objetivoBox} col-md-12 col-lg-6 col-xl-7 col-xxl-8`}>
-                        <div className={`${style.objetivoButton} col-md-12`}> 
-                                <p>
-                                    Lejos del objetivo
-                                </p>
+                    <div style={{display:'flex', width:'100%', height:'100%',justifyContent:'space-between', alignItems:'center', borderRadius:'8px', padding:'0 20px', background:'#212E36', color:'white'}}>
+                        <div>
+                            <div>
+                                25 total
+                            </div>
+                            <div style={{fontSize:'14px'}}>
+                                Aperturas de cuentas
+                            </div>
                         </div>
-                        <div className={` ${style.objetivoProgress} col-md-12`}>
-                            <p>
+                        <div>
+                            <div style={{textAlign:'end'}}>
                                 {` % ${value}`}
-                            </p>
-                            <div className="progress col-md-12">
+                            </div>
+                            <div className="progress" style={{width:'100px'}}>
                                 {progress(value)}
                             </div>
                         </div>
-                        <div className={` ${style.progressBottom} col-md-12`}> 
-                            <span className={style.numberBottom}>
-                                <CircleIcon sx={{fontSize:'10px', color:'#F96000'}}/>
-                                {mesActual} 
-                                <span className={style.textBottomLeft}>
-                                    Mes Actual
-                                </span>
-                            </span>
-                            <span className={style.numberBottom}>
-                                <CircleIcon sx={{fontSize:'10px', color:'#84A4AC'}}/>
-                                {mesAnterior}
-                                <span className={style.textBottomLeft}>
-                                    Mes anterior
-                                </span>
-                            </span>
+                    </div>
+                </div>
+                <div className='col-md-6' style={{padding:'10px', height:'100px',alignItems:'center',position:'relative'}}>
+                    <div className={`${style.objetivoButton}`} style={{position:'absolute', right:0, top:0, marginRight:'40px'}}>
+                        <p>
+                            lejos del objetivo
+                        </p>
+                    </div>
+                    <div style={{display:'flex', width:'100%', height:'100%',justifyContent:'space-between', alignItems:'center', borderRadius:'8px', padding:'0 20px', background:'#212E36', color:'white'}}>
+                        <div>
+                            <div>
+                                25 total
+                            </div>
+                            <div style={{fontSize:'14px'}}>
+                                Aperturas de cuentas
+                            </div>
+                        </div>
+                        <div>
+                            <div style={{textAlign:'end'}}>
+                                {` % ${value}`}
+                            </div>
+                            <div className="progress" style={{width:'100px'}}>
+                                {progress(value)}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
     )
 }
 

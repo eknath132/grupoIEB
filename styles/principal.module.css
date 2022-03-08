@@ -2,12 +2,13 @@
 .header {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     background: rgb(183,222,237); /* Old browsers */
     background: -moz-linear-gradient(-45deg, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 50%, rgba(33,180,226,1) 50%, rgba(183,222,237,1) 100%); /* FF3.6-15*/ 
     background: -webkit-linear-gradient(-45deg, rgba(61, 90, 108,1) 0%,rgba(113,206,239,1) 50%,rgba(33,180,226,1) 50%,rgba(183,222,237,1) 100%); /*Chrome10-25,Safari5.1-6 */ 
     background: var(--theme-principal-header);/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
     /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#b7deed',GradientType=1 ); /*IE6-9 fallback on horizontal gradient    min-height: 100px; */ 
-    padding: 10px;
+    padding: 5px;
     position: relative;
     border-radius: 19px 19px 0 0;
 }
@@ -29,13 +30,13 @@
 .disponibleH4 {
     color: #fff;
     line-height: 20px;
-    font-size: 24px;
+    font-size: 17px;
     font-weight: bold;
 }
 .disponibleH5 {
     margin: 0;
     color: var(--theme-letterSmall);
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
 }
 
@@ -44,13 +45,12 @@
 /* Disponible Right*/
 
 .contenedorSigno {
-    padding: 10px 2px;
-    margin-top: 5px;
+    min-width: 100px;
 }
 
 .signoFlex {
     line-height: 50px;
-    font-size: 32px;
+    font-size: 21px;
     font-weight: bold;
     display: flex;
     margin-left: auto;
@@ -62,10 +62,10 @@
 }
 
 .arrowUpDisponible {
-    border-radius: 10px;
+    border-radius: 6px;
     background: #323232;
     margin-left: 10px;
-    margin-top: 12px;
+    margin-top: 15px;
     color: #FFF;
 }
 .arrowUpDisponible:hover {
@@ -322,8 +322,10 @@
 
 .caucionesTitle {
     background: var(--theme-principal-caucionesApalancamiento);
-    text-align: center;
-    height: 80px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    height: 100px;
     line-height: 40px;
     border-radius: 19px 19px 0 0;
     font-size: 20px;
@@ -335,13 +337,16 @@
     background: var(--theme-principal-caucionesSub);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
-    width: 80%;
-    height: 90px;
+    width: 70%;
+    height: 80px;
+    padding: 10px 0;
     border-radius: 20px;
     margin-left: auto;
     margin-right: auto;
     margin-top: -50px;
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
 }
 
 .caucionesSubtitle p:first-child {
@@ -368,7 +373,7 @@
 .caucionesClienteBox {
     display: flex;
     justify-content: space-between;
-    margin: 10px 20px;
+    margin: 0 15px;
 }
 
 .caucionesCliente {

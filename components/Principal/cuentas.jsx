@@ -1,6 +1,7 @@
 import style from '../../styles/principal.module.css'
 import Comisiones from './comisiones'
 import CircleIcon from '@mui/icons-material/Circle';
+import MercadoTarjeta from './mercadoTarjeta';
 
 const cuentas = ({value, mesActual, mesAnterior}) => {
     const progress = (value) => {
@@ -46,62 +47,22 @@ const cuentas = ({value, mesActual, mesAnterior}) => {
     }
 
     return (
-            <div className={`${style.rowCuentas} row`}> 
-                <div className={`${style.cuentas} col-md-12 col-lg-6 p-3`}>
-                    <div className='row'>
-                        <div className={`${style.cuentasBox} col-md-12 col-lg-6`}>
-                            <div className={style.cuentasBoxLeft}> 
-                                <h3>
-                                    Apertura de
-                                </h3>
-                                <h4>
-                                    cuentas
-                                </h4>
-                            </div>
-                            <div className={style.cuentasBoxRight}> 
-                                <h3>
-                                    25
-                                </h3>
-                                <h4>
-                                    Total
-                                </h4>
-                            </div>
-                        </div>
-                        <div className={`${style.objetivoBox} col-md-12 col-lg-6 col-xl-7 col-xxl-8`}>
-                            <div className={`${style.objetivoButton} col-md-12`}> 
-                                    <p>
-                                        Lejos del objetivo
-                                    </p>
-                            </div>
-                            <div className={` ${style.objetivoProgress} col-md-12`}>
-                                <p>
-                                    {` % ${value}`}
-                                </p>
-                                <div className="progress col-md-12">
-                                    {progress(value)}
-                                </div>
-                            </div>
-                            <div className={` ${style.progressBottom} col-md-12`}> 
-                                <span className={style.numberBottom}>
-                                    <CircleIcon sx={{fontSize:'10px', color:'#F96000'}}/>
-                                    {mesActual} 
-                                    <span className={style.textBottomLeft}>
-                                        Mes Actual
-                                    </span>
-                                </span>
-                                <span className={style.numberBottom}>
-                                    <CircleIcon sx={{fontSize:'10px', color:'#84A4AC'}}/>
-                                    {mesAnterior}
-                                    <span className={style.textBottomLeft}>
-                                        Mes anterior
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+        <div>
+            <div className='col-md-12' style={{minHeight:'120px', padding:'10px 5px', background:'#EAEAEA', marginBottom:'10px'}}>
+                <div style={{margin:'10px', fontSize:'21px'}}>
+                    Mercado
                 </div>
+                <div style={{display:'flex', justifyContent:'space-between', flexWrap:'wrap'}}>
+                    <MercadoTarjeta/>
+                    <MercadoTarjeta/>
+                    <MercadoTarjeta/>
+                    <MercadoTarjeta/>
+                </div>
+            </div>
+            <div className='col-md-12'>
                 <Comisiones value="25" mesActual="75k" mesAnterior="200k"/>
             </div>
+        </div>
     )
 }
 

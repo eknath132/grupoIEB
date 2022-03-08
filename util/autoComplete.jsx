@@ -51,7 +51,7 @@ const CompleteAuto = ({label, options, change, checkFilter, handdleOnChange, con
                     filter.inputProps.value = ''
                 }
                 return (
-                    <TextField {...filter} label={label} style={{marginTop:'-5px'}} onChange={() => handdleOnChange(conditional) }/> 
+                    <TextField {...filter} label={label} style={{marginTop:'-5px'}} onChange={() => handdleOnChange(conditional)} onClick={(e)=> console.log('capture')}/> 
                 )
             }}
         />
